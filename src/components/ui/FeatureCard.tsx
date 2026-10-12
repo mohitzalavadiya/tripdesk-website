@@ -15,31 +15,34 @@ export function FeatureCard({
   title,
   description,
   badge,
-  interactive = false,
+  interactive = true,
   className,
 }: FeatureCardProps) {
   return (
     <div
       className={cn(
-        'rounded-xl border border-slate-200 bg-white p-6 sm:p-8 transition-all',
-        interactive && 'hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5',
+        'group relative rounded-xl border border-slate-200/90 bg-white p-6 sm:p-7 transition-all duration-200',
+        interactive && 'hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-500/5 hover:-translate-y-0.5',
         className
       )}
     >
-      {badge && (
-        <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-[#4F46E5] mb-4">
-          {badge}
-        </span>
-      )}
-      {icon && (
-        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50 text-[#4F46E5] mb-5">
-          {icon}
-        </div>
-      )}
-      <h3 className="text-lg sm:text-xl font-semibold text-[#0F172A] tracking-tight mb-2">
+      <div className="flex items-center justify-between gap-3 mb-4">
+        {icon && (
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200 shadow-xs">
+            {icon}
+          </div>
+        )}
+        {badge && (
+          <span className="inline-block text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+            {badge}
+          </span>
+        )}
+      </div>
+
+      <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-2 group-hover:text-indigo-600 transition-colors">
         {title}
       </h3>
-      <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+      <p className="text-sm text-slate-600 leading-relaxed">
         {description}
       </p>
     </div>

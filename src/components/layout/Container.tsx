@@ -16,7 +16,7 @@ export function Container({
 }: ContainerProps & React.HTMLAttributes<HTMLElement>) {
   const sizeClasses = {
     narrow: 'max-w-4xl',
-    default: 'max-w-7xl',
+    default: 'max-w-[1300px]',
     wide: 'max-w-[1400px]',
     full: 'max-w-full',
   }[size];

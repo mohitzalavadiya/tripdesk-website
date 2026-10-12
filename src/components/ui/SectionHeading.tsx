@@ -25,17 +25,17 @@ export function SectionHeading({
   }[align];
 
   return (
-    <div className={cn('flex flex-col max-w-3xl mb-12 lg:mb-16', alignClasses, className)}>
+    <div className={cn('flex flex-col max-w-3xl mb-12 sm:mb-16', alignClasses, className)}>
       {eyebrow && (
-        <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#4F46E5] uppercase mb-2">
-          {eyebrow}
-        </span>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/80 text-[11px] font-bold tracking-wider text-indigo-700 uppercase mb-4 shadow-2xs">
+          <span>{eyebrow}</span>
+        </div>
       )}
-      <TitleTag className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#0F172A] leading-tight">
+      <TitleTag className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-slate-900 leading-[1.14]">
         {title}
       </TitleTag>
       {description && (
-        <p className="mt-4 text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl">
+        <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
           {description}
         </p>
       )}

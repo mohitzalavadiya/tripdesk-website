@@ -1,289 +1,239 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { ScreenshotFrame } from '@/components/ui/ScreenshotFrame';
 import {
-  Users,
   Compass,
   FileText,
   CalendarCheck,
-  CreditCard,
+  TrendingUp,
   CheckCircle2,
+  ArrowRight,
 } from 'lucide-react';
 
 const SCREENS = [
   {
-    id: 'customers',
-    area: 'Customer Management',
-    heading: 'Keep every customer organized.',
-    description:
-      'Store customer and traveler information and keep trips connected to the right customer.',
-    benefits: [
-      'Organized customer information',
-      'Multiple trips for the same customer',
-      'Traveler information within trips',
-      'Easy customer history',
-    ],
-    icon: Users,
-    badge: 'CRM & Traveler Hub',
-    reverse: false,
-    mockContent: (
-      <div className="my-auto space-y-3 py-3">
-        <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-            <div>
-              <p className="text-xs font-bold text-[#0F172A]">Sarah Jenkins</p>
-              <p className="text-[11px] text-slate-500">sarah.j@example.com • +1 (555) 019-2834</p>
-            </div>
-            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
-              Active Client
-            </span>
-          </div>
-          <div className="mt-2.5 grid grid-cols-2 gap-2 text-[11px]">
-            <div className="rounded bg-slate-50 p-2">
-              <span className="text-slate-500 block text-[10px]">Total Trips Booked</span>
-              <span className="font-bold text-slate-800">4 Completed / 1 Upcoming</span>
-            </div>
-            <div className="rounded bg-slate-50 p-2">
-              <span className="text-slate-500 block text-[10px]">Traveler Group</span>
-              <span className="font-bold text-slate-800">Family (2 Adults, 2 Kids)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
     id: 'trips',
-    area: 'Trip Management',
-    heading: 'Plan and manage every trip from one place.',
+    area: 'Trip Workspaces',
+    heading: 'Plan and manage every multi-day trip from one central workspace.',
     description:
-      'Bring hotels, vehicles, activities, travelers, and trip details together.',
+      'Organize destinations, multi-day schedules, passenger lists, hotel stays, and transportation in a dedicated workspace with zero friction.',
     benefits: [
-      'Centralized trip information',
-      'Multiple travelers',
-      'Hotel details',
-      'Vehicles and activities',
-      'Trip-level organization',
+      'Day-by-day itinerary structuring with connected stays & transfers',
+      'Unified passenger counts, lead traveler contacts, and room rosters',
+      'Integrated hotel and transport contract rate lookups',
+      'Real-time status tracking (Planning, Confirmed, On Tour, Completed)',
     ],
     icon: Compass,
-    badge: 'Itinerary Planner',
-    reverse: true,
-    mockContent: (
-      <div className="my-auto space-y-3 py-3">
-        <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-            <div>
-              <p className="text-xs font-bold text-[#0F172A]">Swiss Alps Expedition 2026</p>
-              <p className="text-[11px] text-slate-500">Oct 12 – Oct 20 • 8 Days • 4 Travelers</p>
-            </div>
-            <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-[#4F46E5]">
-              Planning
-            </span>
-          </div>
-          <div className="mt-2.5 space-y-1.5 text-[11px]">
-            <div className="flex items-center justify-between rounded bg-slate-50 p-2">
-              <span className="text-slate-700 font-medium">Hotel: The Chedi Andermatt (3 Nights)</span>
-              <span className="text-slate-500">Confirmed</span>
-            </div>
-            <div className="flex items-center justify-between rounded bg-slate-50 p-2">
-              <span className="text-slate-700 font-medium">Transfer: Private Mercedes V-Class</span>
-              <span className="text-slate-500">Assigned</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
+    badge: 'Operations & Itineraries',
+    reverse: false,
+    imageSrc: '/screenshots/trips.png',
+    chip: {
+      title: 'Active Tour Itinerary',
+      subtitle: 'Day 3: Munnar Tea Valley • Cab Assigned',
+      badge: 'Live',
+    },
+    href: '/features#itineraries',
   },
   {
     id: 'quotations',
-    area: 'Quotations',
-    heading: 'Create travel quotations without starting from scratch.',
+    area: 'Quotations & Proposals',
+    heading: 'Assemble client-ready quotations in minutes, not hours.',
     description:
-      'Build quotations from trip information and present a clear, professional travel proposal.',
+      'Generate clear client-facing pricing proposals directly from your trip workspaces without retyping rates or recalculating markups in spreadsheets.',
     benefits: [
-      'Structured quotation workflow',
-      'Hotel/service details',
-      'Trip-based pricing',
-      'Customer-facing quotation experience',
+      'Automatic cost aggregation and customizable agency markups',
+      'Draft, Sent, Viewed, and Accepted quotation tracking pipeline',
+      'One-click conversion from accepted proposal to active booking',
+      'Professional branded presentation that earns client confidence',
     ],
     icon: FileText,
-    badge: 'Proposal Generator',
-    reverse: false,
-    mockContent: (
-      <div className="my-auto space-y-3 py-3">
-        <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-            <div>
-              <p className="text-xs font-bold text-[#0F172A]">Quotation #QT-2026-084</p>
-              <p className="text-[11px] text-slate-500">Client: Robert Langdon • Luxury Safari</p>
-            </div>
-            <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700">
-              Proposal Sent
-            </span>
-          </div>
-          <div className="mt-2.5 space-y-1.5 text-[11px]">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-1">
-              <span className="text-slate-600">Option 1: 5-Star Luxury Lodge</span>
-              <span className="font-bold text-slate-900">$8,450.00</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-slate-600">Option 2: Executive Tented Camp</span>
-              <span className="font-bold text-slate-900">$6,200.00</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
+    badge: 'Commercial Proposals',
+    reverse: true,
+    imageSrc: '/screenshots/quotations.png',
+    chip: {
+      title: 'Commercial Proposal',
+      subtitle: 'Goa 7-Day Tour • ₹1,11,203 (Margin +22%)',
+      badge: 'Accepted',
+    },
+    href: '/features#quotations',
   },
   {
     id: 'bookings',
-    area: 'Bookings',
-    heading: 'Keep confirmed bookings under control.',
+    area: 'Bookings & Operations',
+    heading: 'Keep confirmed bookings and supplier vouchers under control.',
     description:
-      'Once a customer confirms a trip, keep booking and service information connected to the trip.',
+      'Lock in accepted itineraries, generate supplier vouchers, and monitor operational execution across your team with total clarity.',
     benefits: [
-      'Organized booking information',
-      'Connected trip services',
-      'Customer/traveler details',
-      'Clear booking status',
+      'Dedicated booking reference numbers and payment milestone tracking',
+      'Supplier rooming lists, vehicle allotments, and service vouchers',
+      'Filtered operational views for Confirmed, Travelling Now, and Completed',
+      'Zero communication breakdowns with hotel or transport partners',
     ],
     icon: CalendarCheck,
-    badge: 'Operations & Vouchers',
-    reverse: true,
-    mockContent: (
-      <div className="my-auto space-y-3 py-3">
-        <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-            <div>
-              <p className="text-xs font-bold text-[#0F172A]">Booking #BK-9482</p>
-              <p className="text-[11px] text-slate-500">Status: All Supplier Vouchers Issued</p>
-            </div>
-            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
-              100% Confirmed
-            </span>
-          </div>
-          <div className="mt-2.5 grid grid-cols-2 gap-2 text-[11px]">
-            <div className="rounded bg-slate-50 p-2">
-              <span className="text-slate-500 block text-[10px]">Hotel Confirmation</span>
-              <span className="font-semibold text-slate-800">#H-7729 (Verified)</span>
-            </div>
-            <div className="rounded bg-slate-50 p-2">
-              <span className="text-slate-500 block text-[10px]">Activity Voucher</span>
-              <span className="font-semibold text-slate-800">#ACT-402 (Ready)</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
+    badge: 'Active Operations',
+    reverse: false,
+    imageSrc: '/screenshots/bookings.png',
+    chip: {
+      title: 'Supplier Service Voucher',
+      subtitle: 'Taj Gateway Cochin • Room Allotted',
+      badge: 'Dispatched',
+    },
+    href: '/features#bookings',
   },
   {
-    id: 'invoices',
-    area: 'Invoices & Payments',
-    heading: 'Stay on top of customer payments.',
+    id: 'customers',
+    area: 'Executive Overview & CRM',
+    heading: 'Real-time visibility over sales, margins, and customers.',
     description:
-      'Create invoices for confirmed bookings, record partial or multiple payments, and track outstanding balances.',
+      'Monitor monthly gross bookings, outstanding receivables, top holiday destinations, and quotation conversion win rates on a live dashboard.',
     benefits: [
-      'Professional invoices',
-      'Multiple payments',
-      'Partial payment tracking',
-      'Outstanding balance visibility',
-      'Payment history',
+      'Total sales, collections, and gross margin analytics at a glance',
+      'Quotation conversion funnel from raw inquiry to confirmed tour',
+      'Top destinations and high-value repeat customer directory',
+      'Fast CSV exports for accounting, tax reporting, and reviews',
     ],
-    icon: CreditCard,
-    badge: 'Financial Billing',
-    reverse: false,
-    mockContent: (
-      <div className="my-auto space-y-3 py-3">
-        <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-2xs">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-            <div>
-              <p className="text-xs font-bold text-[#0F172A]">Invoice #INV-2026-109</p>
-              <p className="text-[11px] text-slate-500">Total: $12,500.00 • Paid: $6,250.00</p>
-            </div>
-            <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-[#4F46E5]">
-              Partial Paid (50%)
-            </span>
-          </div>
-          <div className="mt-2.5 space-y-1.5 text-[11px]">
-            <div className="flex items-center justify-between rounded bg-slate-50 p-2">
-              <span className="text-slate-700">Deposit Payment (Credit Card)</span>
-              <span className="font-bold text-emerald-600">+$6,250.00 (Received)</span>
-            </div>
-            <div className="flex items-center justify-between rounded bg-amber-50/50 p-2">
-              <span className="text-amber-800 font-medium">Balance Due by Sep 30</span>
-              <span className="font-bold text-amber-900">$6,250.00 Remaining</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
+    icon: TrendingUp,
+    badge: 'Executive Dashboard',
+    reverse: true,
+    imageSrc: '/screenshots/dashboard.png',
+    chip: {
+      title: 'Live Executive Overview',
+      subtitle: '100% Win Rate • ₹29,484 Total Bookings',
+      badge: 'Analytics',
+    },
+    href: '/features#analytics',
   },
 ];
 
 export function ProductScreensSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28">
+    <section className="py-20 sm:py-28 lg:py-36 bg-[#F4F3EE] border-b border-slate-200/80">
       <Container size="default">
-        <SectionHeading
-          eyebrow="Real Product Experience"
-          title="See how TripDesk powers each stage of your agency."
-          description="A visual walkthrough of the specialized modules purpose-built to eliminate operational friction."
-          align="center"
-        />
+        {/* Perk-Style Editorial Heading */}
+        <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-24">
+          <h2 className="text-3xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-950 leading-[1.1]">
+            Inside the platform.
+            <br />
+            Engineered for travel precision.
+          </h2>
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            A visual walkthrough of the specialized workspaces engineered for boutique agencies,
+            tour operators, and destination management companies.
+          </p>
+        </div>
 
-        <div className="mt-16 space-y-20 lg:space-y-28">
+        <div className="space-y-24 sm:space-y-32">
           {SCREENS.map((screen) => {
             const Icon = screen.icon;
             return (
               <div
                 key={screen.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
+                id={screen.id}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center ${
+                  screen.reverse ? 'lg:grid-flow-dense' : ''
+                }`}
               >
-                {/* Text Column */}
+                {/* Text Content Column */}
                 <div
-                  className={`lg:col-span-5 ${
-                    screen.reverse ? 'lg:order-2' : 'lg:order-1'
+                  className={`lg:col-span-5 space-y-6 ${
+                    screen.reverse ? 'lg:col-start-8' : ''
                   }`}
                 >
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-xs font-semibold text-[#4F46E5] mb-4">
-                    <Icon className="h-3.5 w-3.5" />
-                    <span>{screen.area}</span>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/90 text-xs font-bold text-indigo-700 shadow-2xs">
+                    <Icon className="h-4 w-4 text-indigo-600" />
+                    <span>{screen.badge}</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0F172A] tracking-tight leading-tight">
+                  <h3 className="text-2xl sm:text-3xl lg:text-[38px] font-black text-slate-950 leading-[1.14] tracking-tight">
                     {screen.heading}
                   </h3>
 
-                  <p className="mt-4 text-base text-[#475569] leading-relaxed">
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                     {screen.description}
                   </p>
 
-                  <ul className="mt-6 space-y-2.5 text-sm text-[#0F172A]" role="list">
+                  <div className="space-y-3 pt-2">
                     {screen.benefits.map((benefit) => (
-                      <li key={benefit} className="flex items-center gap-2.5">
-                        <CheckCircle2 className="h-4 w-4 text-[#4F46E5] shrink-0" />
-                        <span className="font-medium text-slate-700">{benefit}</span>
-                      </li>
+                      <div key={benefit} className="flex items-start gap-3">
+                        <div className="h-5 w-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                          <CheckCircle2 className="h-3.5 w-3.5 stroke-[2.5]" />
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-slate-700 leading-snug">
+                          {benefit}
+                        </span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+
+                  <div className="pt-4">
+                    <Link
+                      href={screen.href}
+                      className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 group"
+                    >
+                      <span>Explore {screen.area}</span>
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
 
-                {/* Screenshot Frame Column */}
+                {/* Device Frame Screenshot Column - Clean Modern Window Mockup */}
                 <div
-                  className={`lg:col-span-7 ${
-                    screen.reverse ? 'lg:order-1' : 'lg:order-2'
+                  className={`lg:col-span-7 relative ${
+                    screen.reverse ? 'lg:col-start-1' : ''
                   }`}
                 >
-                  <ScreenshotFrame
-                    title={screen.area}
-                    subtitle={screen.heading}
-                    icon={Icon}
-                    badge={screen.badge}
-                    aspectRatio="video"
+                  <div className="relative mx-auto rounded-[28px] border border-slate-200/90 bg-white p-3 sm:p-4 shadow-xl transition-all duration-300">
+                    {/* Frame Top Header */}
+                    <div className="flex h-9 items-center justify-between border-b border-slate-100 pb-2.5 mb-2.5 px-1 sm:px-2 gap-2">
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <div className="h-2.5 w-2.5 rounded-full bg-rose-400 shrink-0" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-amber-400 shrink-0" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 shrink-0" />
+                        <span className="ml-1 sm:ml-2 text-[10px] sm:text-[11px] font-semibold text-slate-400 truncate max-w-[110px] sm:max-w-none">
+                          app.yourtraveldesk.com/{screen.id}
+                        </span>
+                      </div>
+                      <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-2 sm:px-2.5 py-0.5 rounded-full shrink-0">
+                        Live System
+                      </span>
+                    </div>
+
+                    {/* Screenshot Image */}
+                    <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-slate-900/5">
+                      <Image
+                        src={screen.imageSrc}
+                        alt={screen.heading}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 700px"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Floating Contextual Chip (Perk-Style UI Micro-Card) */}
+                  <div
+                    className={`hidden sm:flex absolute ${
+                      screen.reverse ? '-left-3 -bottom-4' : '-right-3 -bottom-4'
+                    } items-center gap-3 rounded-2xl bg-white p-3.5 shadow-xl border border-slate-200/90 z-10 max-w-xs`}
                   >
-                    {screen.mockContent}
-                  </ScreenshotFrame>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 shadow-2xs">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs font-bold text-slate-900 truncate">
+                          {screen.chip.title}
+                        </p>
+                        <span className="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">
+                          {screen.chip.badge}
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 truncate mt-0.5">
+                        {screen.chip.subtitle}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

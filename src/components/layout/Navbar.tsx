@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
-import { NAV_LINKS, APP_SIGNUP_URL, APP_LOGIN_URL, BRAND } from '@/lib/constants';
+import { Menu, ChevronRight } from 'lucide-react';
+import { NAV_LINKS, APP_LOGIN_URL } from '@/lib/constants';
 import { Container } from '@/components/layout/Container';
-import { Button } from '@/components/ui/Button';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { MobileNav } from '@/components/layout/MobileNav';
 
 export function Navbar() {
@@ -14,33 +14,25 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200/70 bg-[#F9F9F6]/95 backdrop-blur-md transition-all">
       <Container size="default">
-        <div className="flex h-16 sm:h-20 items-center justify-between">
+        <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-8">
-            <Link
-              href="/"
-              className="flex items-center gap-2.5 font-bold text-xl text-[#0F172A] tracking-tight group focus-visible:outline-2 focus-visible:outline-[#4F46E5] rounded-md"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#4F46E5] text-white font-black text-sm shadow-sm group-hover:bg-[#4338CA] transition-colors">
-                TD
-              </span>
-              <span className="text-lg sm:text-xl font-bold">{BRAND.name}</span>
-            </Link>
+            <BrandLogo />
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
+            <nav className="hidden lg:flex items-center gap-1" aria-label="Main Navigation">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    className={`px-3 py-1.5 text-sm font-semibold rounded-full transition-colors ${
                       isActive
-                        ? 'text-[#4F46E5] bg-indigo-50/70 font-semibold'
-                        : 'text-[#475569] hover:text-[#0F172A] hover:bg-slate-50'
+                        ? 'text-slate-950 bg-stone-200/70'
+                        : 'text-slate-700 hover:text-slate-950 hover:bg-stone-200/50'
                     }`}
                   >
                     {link.label}
@@ -50,32 +42,32 @@ export function Navbar() {
             </nav>
           </div>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
+          {/* Desktop Actions (Brand Logo Color Combination: Indigo-600 + Slate Outline) */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            <Link
+              href="/request-demo"
+              className="inline-flex items-center gap-1 px-4 py-2 text-xs sm:text-sm font-bold bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white rounded-full transition-all shadow-sm shadow-indigo-600/25"
+            >
+              <span>Book a demo</span>
+              <ChevronRight className="h-3.5 w-3.5 stroke-[2.5]" />
+            </Link>
+            <a
               href={APP_LOGIN_URL}
-              variant="ghost"
-              size="sm"
-              isExternal
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-4 py-2 text-xs sm:text-sm font-bold bg-white hover:bg-slate-50 active:scale-[0.98] text-slate-900 border border-slate-300 rounded-full transition-all shadow-xs"
             >
-              Log in
-            </Button>
-            <Button
-              href={APP_SIGNUP_URL}
-              variant="primary"
-              size="sm"
-              isExternal
-            >
-              {BRAND.primaryCta}
-            </Button>
+              <span>Get started</span>
+              <ChevronRight className="h-3.5 w-3.5 stroke-[2.5] text-slate-500" />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lg:hidden shrink-0">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-[#4F46E5]"
+              className="p-2 text-slate-700 hover:text-slate-950 rounded-lg hover:bg-stone-200/50 focus-visible:outline-2 focus-visible:outline-slate-900"
               aria-expanded={mobileMenuOpen}
               aria-label="Open mobile navigation menu"
             >

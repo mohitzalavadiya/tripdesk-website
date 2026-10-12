@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { NAV_LINKS, APP_SIGNUP_URL, APP_LOGIN_URL, BRAND } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -19,7 +20,6 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     onClose();
   }, [pathname, onClose]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -42,46 +42,37 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Slide-over menu */}
-      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white p-6 shadow-xl flex flex-col justify-between overflow-y-auto">
+      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
         <div>
           <div className="flex items-center justify-between pb-6 border-b border-slate-200">
-            <Link
-              href="/"
-              className="flex items-center gap-2 font-bold text-xl text-[#0F172A]"
-              onClick={onClose}
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#4F46E5] text-white font-black text-sm">
-                TD
-              </span>
-              <span>{BRAND.name}</span>
-            </Link>
+            <BrandLogo />
             <button
               type="button"
               onClick={onClose}
-              className="p-2 text-slate-500 hover:text-slate-700 rounded-lg hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-[#4F46E5]"
+              className="p-2 text-slate-500 hover:text-slate-900 rounded-lg hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-indigo-600"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
 
-          <nav className="mt-6 flex flex-col space-y-1" aria-label="Mobile Navigation Links">
+          <nav className="mt-6 flex flex-col space-y-1.5" aria-label="Mobile Navigation Links">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block px-3 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                  className={`block px-3.5 py-2.5 rounded-lg text-base font-medium transition-colors ${
                     isActive
-                      ? 'bg-indigo-50 text-[#4F46E5]'
-                      : 'text-[#475569] hover:bg-slate-50 hover:text-[#0F172A]'
+                      ? 'bg-indigo-50 text-indigo-600 font-semibold'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                   }`}
                   onClick={onClose}
                 >
@@ -89,6 +80,17 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                 </Link>
               );
             })}
+            <Link
+              href="/request-demo"
+              className={`block px-3.5 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                pathname === '/request-demo'
+                  ? 'bg-indigo-50 text-indigo-600 font-semibold'
+                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+              }`}
+              onClick={onClose}
+            >
+              Request Demo
+            </Link>
           </nav>
         </div>
 
@@ -99,7 +101,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             className="w-full justify-center"
             isExternal
           >
-            Log in
+            Agency Login
           </Button>
           <Button
             href={APP_SIGNUP_URL}

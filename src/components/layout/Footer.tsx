@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import {
   BRAND,
   FOOTER_PRODUCT_LINKS,
@@ -12,31 +13,27 @@ import {
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 text-[#0F172A]">
+    <footer className="border-t border-slate-800 bg-[#0F172A] text-slate-400">
       <Container size="default" className="py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link
-              href="/"
-              className="flex items-center gap-2.5 font-bold text-xl text-[#0F172A] tracking-tight group inline-flex"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#4F46E5] text-white font-black text-sm">
-                TD
-              </span>
-              <span className="text-xl font-bold">{BRAND.name}</span>
-            </Link>
-            <p className="mt-3 text-sm text-[#475569] max-w-sm leading-relaxed">
+            <BrandLogo variant="dark" showSubtitle />
+            <p className="mt-4 text-sm text-slate-400 max-w-sm leading-relaxed">
               {BRAND.tagline}
             </p>
             <p className="mt-2 text-xs text-slate-500 max-w-sm">
-              The operating system designed for small and medium travel agencies, tour operators, and DMCs.
+              Purpose-built SaaS for Indian travel agencies, boutique holiday planners, tour operators, and destination management companies worldwide.
             </p>
+            <div className="mt-4 flex items-center gap-2 text-xs text-slate-400 font-medium">
+              <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Production Infrastructure Ready</span>
+            </div>
           </div>
 
           {/* Product Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
               Product
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm" role="list">
@@ -44,7 +41,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#475569] hover:text-[#0F172A] transition-colors"
+                    className="text-slate-400 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -53,7 +50,7 @@ export function Footer() {
               <li>
                 <a
                   href={APP_SIGNUP_URL}
-                  className="text-[#4F46E5] font-medium hover:text-[#4338CA] transition-colors"
+                  className="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors inline-flex items-center gap-1"
                 >
                   Start Free Trial →
                 </a>
@@ -63,18 +60,29 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
               Company
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm" role="list">
               {FOOTER_COMPANY_LINKS.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-[#475569] hover:text-[#0F172A] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {'isExternal' in link && link.isExternal ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-slate-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -82,18 +90,29 @@ export function Footer() {
 
           {/* Resources Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
               Resources
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm" role="list">
               {FOOTER_RESOURCE_LINKS.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[#475569] hover:text-[#0F172A] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {'isExternal' in link && link.isExternal ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-slate-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -101,7 +120,7 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
               Legal
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm" role="list">
@@ -109,7 +128,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#475569] hover:text-[#0F172A] transition-colors"
+                    className="text-slate-400 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -120,15 +139,16 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#475569]">
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2026 {BRAND.name}. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-[#0F172A] transition-colors">
+            <Link href="/privacy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-[#0F172A] transition-colors">
+            <Link href="/terms" className="hover:text-slate-300 transition-colors">
               Terms of Service
             </Link>
+            <span className="text-slate-500">Target: yourtraveldesk.in</span>
           </div>
         </div>
       </Container>

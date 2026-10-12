@@ -1,70 +1,106 @@
 import React from 'react';
 import { Container } from '@/components/layout/Container';
 import { Zap, Network, Award, Layers } from 'lucide-react';
+import { BRAND } from '@/lib/constants';
 
-const PILLARS = [
+const ROLES = [
+  {
+    icon: Award,
+    role: 'FOUNDERS & OWNERS',
+    title: 'Complete visibility & margin control',
+    description:
+      'Track total monthly gross bookings, outstanding receivables, quotation win rates, and team productivity without chasing individual consultants.',
+  },
   {
     icon: Zap,
-    title: 'Simple',
+    role: 'TOUR PLANNERS',
+    title: 'Intuitive day-wise workspaces',
     description:
-      'Intuitive design built directly around travel workflows. Your team can onboard and start organizing trips in minutes without heavy training.',
+      'Drag-and-drop itinerary builders with connected hotel tariffs, private vehicle routes, and dynamic meal plans configured in minutes.',
   },
   {
     icon: Network,
-    title: 'Connected',
+    role: 'SALES & COMMERCIAL',
+    title: 'Instant proposals with locked markups',
     description:
-      'No more copying data between different tools. Customer profiles flow into trips, which generate quotes, confirmed bookings, and invoices automatically.',
-  },
-  {
-    icon: Award,
-    title: 'Professional',
-    description:
-      'Deliver clean, high-impact quotations, accurate vouchers, and structured invoices that inspire trust and confidence in your clients.',
+      'Dispatch branded client PDF proposals with auto-calculated package pricing and protected agency profit margins before competitors respond.',
   },
   {
     icon: Layers,
-    title: 'Centralized',
+    role: 'OPERATIONS & FLEET',
+    title: 'Voucher dispatch & zero chaos',
     description:
-      'All your customer records, hotel contracts, supplier vouchers, and payment histories live in one single, organized source of truth.',
+      'Lock in accepted itineraries, generate hotel rooming lists, and dispatch driver duty slips directly with zero communication breakdowns.',
   },
+];
+
+const METRICS = [
+  { value: '5 Min', label: 'Instant Onboarding', desc: 'Ready out of the box with zero IT setup' },
+  { value: '100%', label: 'Travel Specialized', desc: 'Engineered for itineraries, vouchers & tariffs' },
+  { value: '0', label: 'Spreadsheets Needed', desc: 'End-to-end client quotation to ledger flow' },
 ];
 
 export function WhyTripDeskSection() {
   return (
-    <section className="bg-[#0F172A] text-white py-20 sm:py-24 lg:py-28 relative overflow-hidden">
+    <section className="bg-white py-20 sm:py-24 lg:py-32 border-b border-slate-200/80">
       <Container size="default">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3">
-            Why TripDesk
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-white leading-tight">
-            Built around your travel agency workflow.
+        {/* Perk-Style Editorial Heading */}
+        <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-950 leading-[1.1]">
+            Powerful for agency owners.
+            <br />
+            Effortless for travel consultants.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
-            Traditional generic software forces you to adapt your process to their platform. TripDesk was engineered specifically for travel agents, tour operators, and DMCs.
+          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Generic CRMs and spreadsheets don&apos;t understand day-wise itineraries, room allocations,
+            or supplier vouchers. {BRAND.name} is engineered around how modern travel operators actually work.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PILLARS.map((pillar) => {
-            const Icon = pillar.icon;
+        {/* 4 Role Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+          {ROLES.map((item) => {
+            const Icon = item.icon;
             return (
               <div
-                key={pillar.title}
-                className="rounded-xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 backdrop-blur-xs transition-colors hover:border-slate-700"
+                key={item.title}
+                className="group relative flex flex-col justify-between rounded-[28px] border border-slate-200/80 bg-[#F4F3EE] p-8 sm:p-9 transition-all duration-300 hover:bg-white hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1.5"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-400 mb-5 border border-indigo-500/20">
-                  <Icon className="h-5 w-5" />
+                <div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-slate-200/80 text-indigo-600 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors duration-200">
+                    <Icon className="h-5 w-5" />
+                  </div>
+
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-indigo-600 transition-colors mt-6 block">
+                    {item.role}
+                  </span>
+
+                  <h3 className="text-xl font-bold text-slate-950 mt-2 tracking-tight leading-snug group-hover:text-indigo-600 transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {pillar.title}
-                </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  {pillar.description}
-                </p>
               </div>
             );
           })}
+        </div>
+
+        {/* Perk-Style Operational Metrics Strip */}
+        <div className="mt-14 sm:mt-16 rounded-[28px] border border-slate-200/90 bg-[#F4F3EE] p-8 sm:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-200/80">
+            {METRICS.map((metric, i) => (
+              <div key={metric.label} className={`text-center ${i > 0 ? 'pt-6 md:pt-0 md:px-6' : ''}`}>
+                <p className="text-4xl sm:text-5xl font-black text-indigo-600 font-mono tracking-tight">
+                  {metric.value}
+                </p>
+                <p className="mt-2 text-base font-bold text-slate-950">{metric.label}</p>
+                <p className="mt-1 text-xs sm:text-sm text-slate-600">{metric.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>
