@@ -1,4 +1,9 @@
 import { DemoRequestInput, ContactMessageInput } from '../validation/demoSchema';
+import {
+  isResendConfigured,
+  sendContactEmailNotification,
+  sendDemoEmailNotification,
+} from '../email/resend';
 
 export interface SubmissionResult {
   success: boolean;
@@ -94,6 +99,32 @@ export async function submitDemoRequest(
     };
   }
 
+  // Strip honeypot from forwarded payload
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { website, ...cleanData } = data;
+
+  const timeoutMs = resolveTimeoutMs(options);
+
+  // 1. Resend Delivery Path (Preferred when RESEND_API_KEY is configured)
+  if (isResendConfigured()) {
+    const resendResult = await sendDemoEmailNotification(cleanData, { timeoutMs });
+    if (!resendResult.success) {
+      // Per approved dispatch rule: If Resend is attempted and fails, do NOT automatically fall back to webhook
+      return {
+        success: false,
+        status: 'error',
+        message: 'Notification delivery failed. Please reach out to supportyourtraveldesk@gmail.com.',
+      };
+    }
+
+    return {
+      success: true,
+      status: 'delivered',
+      message: 'Your demo request has been received. Our team will contact you shortly.',
+    };
+  }
+
+  // 2. Webhook Fallback Path (Preserved when Resend is unconfigured)
   const webhookUrl = process.env.DEMO_WEBHOOK_URL;
 
   // If no delivery backend is configured, reject transparently
@@ -102,7 +133,7 @@ export async function submitDemoRequest(
       success: false,
       status: 'unconfigured',
       message:
-        'Demo submission backend is not yet connected by the administrator. Please email us directly at contact@yourtraveldesk.in or configure DEMO_WEBHOOK_URL.',
+        'Demo submission backend is not yet connected by the administrator. Please email us directly at supportyourtraveldesk@gmail.com or configure DEMO_WEBHOOK_URL.',
     };
   }
 
@@ -113,12 +144,6 @@ export async function submitDemoRequest(
       message: 'Configured delivery endpoint is not a valid HTTP/HTTPS URL.',
     };
   }
-
-  // Strip honeypot from forwarded payload
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { website, ...cleanData } = data;
-
-  const timeoutMs = resolveTimeoutMs(options);
 
   try {
     const res = await fetch(webhookUrl, {
@@ -136,7 +161,7 @@ export async function submitDemoRequest(
       return {
         success: false,
         status: 'error',
-        message: 'External delivery failed. Please reach out to contact@yourtraveldesk.in.',
+        message: 'External delivery failed. Please reach out to supportyourtraveldesk@gmail.com.',
       };
     }
 
@@ -153,7 +178,7 @@ export async function submitDemoRequest(
       success: false,
       status: 'error',
       message: isTimeout
-        ? 'Submission request timed out. Please email us directly at contact@yourtraveldesk.in.'
+        ? 'Submission request timed out. Please email us directly at supportyourtraveldesk@gmail.com.'
         : 'Unable to reach submission endpoint. Please try again later.',
     };
   }
@@ -172,6 +197,32 @@ export async function submitContactMessage(
     };
   }
 
+  // Strip honeypot from forwarded payload
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { website, ...cleanData } = data;
+
+  const timeoutMs = resolveTimeoutMs(options);
+
+  // 1. Resend Delivery Path (Preferred when RESEND_API_KEY is configured)
+  if (isResendConfigured()) {
+    const resendResult = await sendContactEmailNotification(cleanData, { timeoutMs });
+    if (!resendResult.success) {
+      // Per approved dispatch rule: If Resend is attempted and fails, do NOT automatically fall back to webhook
+      return {
+        success: false,
+        status: 'error',
+        message: 'Delivery service returned an error. Please try again later.',
+      };
+    }
+
+    return {
+      success: true,
+      status: 'delivered',
+      message: 'Thank you for reaching out. Your message has been safely delivered.',
+    };
+  }
+
+  // 2. Webhook Fallback Path (Preserved when Resend is unconfigured)
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL || process.env.DEMO_WEBHOOK_URL;
 
   if (!webhookUrl) {
@@ -179,7 +230,7 @@ export async function submitContactMessage(
       success: false,
       status: 'unconfigured',
       message:
-        'Contact delivery backend is not yet configured. Please reach out directly to support@yourtraveldesk.in.',
+        'Contact delivery backend is not yet configured. Please reach out directly to supportyourtraveldesk@gmail.com.',
     };
   }
 
@@ -190,12 +241,6 @@ export async function submitContactMessage(
       message: 'Configured delivery endpoint is not a valid HTTP/HTTPS URL.',
     };
   }
-
-  // Strip honeypot from forwarded payload
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { website, ...cleanData } = data;
-
-  const timeoutMs = resolveTimeoutMs(options);
 
   try {
     const res = await fetch(webhookUrl, {
@@ -230,8 +275,8 @@ export async function submitContactMessage(
       success: false,
       status: 'error',
       message: isTimeout
-        ? 'Submission request timed out. Please reach out to support@yourtraveldesk.in.'
-        : 'Failed to send message. Please reach out to support@yourtraveldesk.in.',
+        ? 'Submission request timed out. Please reach out to supportyourtraveldesk@gmail.com.'
+        : 'Failed to send message. Please reach out to supportyourtraveldesk@gmail.com.',
     };
   }
 }

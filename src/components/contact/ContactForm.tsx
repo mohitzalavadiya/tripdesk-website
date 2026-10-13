@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Mail, CheckCircle2, AlertCircle, Info, Loader2 } from 'lucide-react';
 import { BRAND } from '@/lib/constants';
@@ -59,7 +60,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+    <div className="mt-6 sm:mt-8 rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm">
       {status === 'success' ? (
         <div className="py-8 text-center">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-4">
@@ -185,22 +186,34 @@ export function ContactForm() {
             )}
           </div>
 
-          <Button
-            type="submit"
-            variant="primary"
-            size="lg"
-            disabled={loading}
-            className="w-full justify-center shadow-md shadow-indigo-600/20"
-          >
-            {loading ? (
-              <>
-                <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Sending Message...</span>
-              </>
-            ) : (
-              <span>Send Message</span>
-            )}
-          </Button>
+          <div className="space-y-3">
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              disabled={loading}
+              className="w-full justify-center shadow-md shadow-indigo-600/20"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>Sending Message...</span>
+                </>
+              ) : (
+                <span>Send Message</span>
+              )}
+            </Button>
+            <p className="text-center text-xs text-slate-500 leading-normal">
+              By submitting this form, you acknowledge our{' '}
+              <Link
+                href="/privacy"
+                className="text-indigo-600 font-medium underline hover:text-indigo-700 transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              . We use your information to respond to your request.
+            </p>
+          </div>
         </form>
       )}
 

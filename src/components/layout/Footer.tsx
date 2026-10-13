@@ -14,8 +14,8 @@ import {
 export function Footer() {
   return (
     <footer className="border-t border-slate-800 bg-[#0F172A] text-slate-400">
-      <Container size="default" className="py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-6">
+      <Container size="default" className="py-10 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <BrandLogo variant="dark" showSubtitle />
@@ -25,10 +25,10 @@ export function Footer() {
             <p className="mt-2 text-xs text-slate-500 max-w-sm">
               Purpose-built SaaS for Indian travel agencies, boutique holiday planners, tour operators, and destination management companies worldwide.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-slate-400 font-medium">
+            {/* <div className="mt-4 flex items-center gap-2 text-xs text-slate-400 font-medium">
               <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Production Infrastructure Ready</span>
-            </div>
+            </div> */}
           </div>
 
           {/* Product Links */}
@@ -139,16 +139,15 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-slate-500 text-center sm:text-left">
           <p>© 2026 {BRAND.name}. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <Link href="/privacy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-slate-300 transition-colors">
               Terms of Service
             </Link>
-            <span className="text-slate-500">Target: yourtraveldesk.in</span>
           </div>
         </div>
       </Container>

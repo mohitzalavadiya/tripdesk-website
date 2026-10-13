@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL, CANONICAL_SITE_URL } from '@/lib/constants';
 
 export default function robots(): MetadataRoute.Robots {
   const isPreviewOrStaging =
@@ -24,6 +24,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: `${CANONICAL_SITE_URL}/sitemap.xml`,
   };
 }

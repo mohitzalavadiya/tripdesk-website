@@ -36,19 +36,19 @@ export function FaqAccordion({
         const panelId = `faq-panel-${index}`;
 
         return (
-          <div key={index} className="py-5">
+          <div key={index} className="py-4 sm:py-5">
             <button
               id={headingId}
               type="button"
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => toggleIndex(index)}
-              className="flex w-full items-center justify-between gap-4 text-left font-semibold text-slate-900 hover:text-indigo-600 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 rounded-sm"
+              className="flex w-full items-center justify-between gap-3 sm:gap-4 text-left font-semibold text-slate-900 hover:text-indigo-600 transition-colors focus-visible:outline-2 focus-visible:outline-indigo-600 focus-visible:outline-offset-2 rounded-sm"
             >
-              <span className="text-base sm:text-lg">{item.question}</span>
+              <span className="text-sm sm:text-lg">{item.question}</span>
               <ChevronDown
                 className={cn(
-                  'h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200',
+                  'h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-slate-400 transition-transform duration-200',
                   isOpen && 'rotate-180 text-indigo-600'
                 )}
                 aria-hidden="true"
@@ -60,7 +60,7 @@ export function FaqAccordion({
               aria-labelledby={headingId}
               hidden={!isOpen}
               className={cn(
-                'pt-3 text-sm sm:text-base text-slate-600 leading-relaxed transition-all',
+                'pt-2.5 sm:pt-3 text-xs sm:text-base text-slate-600 leading-relaxed transition-all',
                 isOpen ? 'block' : 'hidden'
               )}
             >

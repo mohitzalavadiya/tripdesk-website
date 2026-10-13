@@ -72,31 +72,33 @@ export function PricingPreviewSection() {
             return (
               <div
                 key={plan.id}
-                className={`relative flex flex-col justify-between rounded-[32px] p-8 sm:p-10 transition-all duration-300 ${
+                className={`relative flex flex-col justify-between rounded-2xl sm:rounded-4xl p-5 sm:p-8 lg:p-10 transition-all duration-300 ${
                   isPro
                     ? 'border-2 border-indigo-600 bg-white shadow-xl shadow-indigo-600/10 md:-translate-y-2'
                     : 'border border-slate-200/80 bg-[#F4F3EE] shadow-2xs hover:bg-white hover:border-slate-300 hover:shadow-md'
                 }`}
               >
                 {isPro && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-4 py-1 text-xs font-bold text-white shadow-sm flex items-center gap-1.5 uppercase tracking-wide">
-                    <Sparkles className="h-3 w-3" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-3.5 sm:px-4 py-1 text-[11px] sm:text-xs font-bold text-white shadow-sm flex items-center gap-1.5 uppercase tracking-wide whitespace-nowrap">
+                    <Sparkles className="h-3 w-3 shrink-0" />
                     <span>Best Value for Growth</span>
                   </div>
                 )}
 
                 <div>
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-2xl font-black text-slate-950 tracking-tight">{plan.name}</h3>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-bold ${
-                        isPro
-                          ? 'bg-indigo-50 text-indigo-700 border border-indigo-200/80'
-                          : 'bg-white text-slate-700 border border-slate-200'
-                      }`}
-                    >
-                      {plan.badge}
-                    </span>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight">{plan.name}</h3>
+                    {'badge' in plan && plan.badge && (
+                      <span
+                        className={`rounded-full px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs font-bold whitespace-nowrap ${
+                          isPro
+                            ? 'bg-indigo-50 text-indigo-700 border border-indigo-200/80'
+                            : 'bg-white text-slate-700 border border-slate-200'
+                        }`}
+                      >
+                        {plan.badge}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-2.5 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
                     {plan.tagline}
@@ -157,7 +159,7 @@ export function PricingPreviewSection() {
         </div>
 
         {/* Reassurance Footer */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-600">
+        <div className="mt-8 sm:mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs font-semibold text-slate-600">
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="h-4 w-4 text-emerald-600" />
             7-Day Full Free Trial

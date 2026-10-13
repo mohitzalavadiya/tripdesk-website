@@ -12,9 +12,16 @@ import { MobileNav } from '@/components/layout/MobileNav';
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMobileMenuOpen(false);
+  }
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/70 bg-[#F9F9F6]/95 backdrop-blur-md transition-all">
+    <>
+      <header className="sticky top-0 z-40 w-full border-b border-slate-200/70 bg-[#F9F9F6]/95 backdrop-blur-md transition-all">
       <Container size="default">
         <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
           {/* Logo */}
@@ -66,7 +73,7 @@ export function Navbar() {
           <div className="flex items-center lg:hidden shrink-0">
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
               className="p-2 text-slate-700 hover:text-slate-950 rounded-lg hover:bg-stone-200/50 focus-visible:outline-2 focus-visible:outline-slate-900"
               aria-expanded={mobileMenuOpen}
               aria-label="Open mobile navigation menu"
@@ -76,12 +83,13 @@ export function Navbar() {
           </div>
         </div>
       </Container>
-
-      {/* Mobile Navigation Drawer */}
-      <MobileNav
-        isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-      />
     </header>
-  );
+
+    {/* Mobile Navigation Drawer */}
+    <MobileNav
+      isOpen={mobileMenuOpen}
+      onClose={() => setMobileMenuOpen(false)}
+    />
+  </>
+);
 }

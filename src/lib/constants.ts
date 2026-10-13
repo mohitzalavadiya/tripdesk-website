@@ -1,4 +1,5 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourtraveldesk.in';
+export const CANONICAL_SITE_URL = 'https://yourtraveldesk.in';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || CANONICAL_SITE_URL;
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.yourtraveldesk.in';
 
 export const APP_SIGNUP_URL = `${APP_URL}/signup`;
@@ -15,8 +16,8 @@ export const BRAND = {
   secondaryCta: 'Book a Demo',
   supportingText: 'Instant access. 7 days free. No credit card required.',
   trialDays: 7,
-  contactEmail: 'contact@yourtraveldesk.in',
-  supportEmail: 'support@yourtraveldesk.in',
+  contactEmail: 'supportyourtraveldesk@gmail.com',
+  supportEmail: 'supportyourtraveldesk@gmail.com',
 } as const;
 
 export const NAV_LINKS = [
@@ -56,7 +57,7 @@ export const PRICING_PLANS = [
   {
     id: 'starter',
     name: 'Starter',
-    badge: '7-Day Free Trial Included',
+    // badge: '7-Day Free Trial Included',
     tagline: 'Essential travel planning & quotation workflow for boutique operators.',
     monthlyPrice: 499,
     yearlyPrice: 4999, // ~₹416/mo (Save ~17%)
@@ -64,7 +65,7 @@ export const PRICING_PLANS = [
     yearlyDisplay: '₹4,999',
     yearlySavings: 'Save ~17%',
     popular: false,
-    ctaText: 'Start 7-Day Free Trial',
+    ctaText: 'Choose Starter',
     ctaHref: APP_SIGNUP_URL,
     isExternal: true,
     features: [

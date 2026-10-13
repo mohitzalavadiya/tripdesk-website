@@ -182,4 +182,4 @@ Before publishing this site to `https://yourtraveldesk.in`, the product owner sh
 2. [ ] **Lead Delivery Webhook:** Add `DEMO_WEBHOOK_URL` and `CONTACT_WEBHOOK_URL` in production environment settings (pointing to agency email relay, Slack channel, or CRM).
 3. [ ] **Production SaaS App URL:** Confirm whether `https://app.yourtraveldesk.in` is live for direct customer signups, or if signups should temporarily route to another verified destination.
 4. [ ] **Google Analytics 4 ID:** Provide the GA4 `G-XXXXXXXXXX` measurement ID for production traffic tracking.
-5. [ ] **Support Email:** Confirm the primary support inbox (e.g., `support@yourtraveldesk.in` or `hello@yourtraveldesk.in`).
+5. [ ] **Support Email:** Confirm the primary support inbox (e.g., `supportyourtraveldesk@gmail.com`).
