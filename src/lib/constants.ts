@@ -15,8 +15,8 @@ export const BRAND = {
   secondaryCta: 'Book a Demo',
   supportingText: 'Instant access. 7 days free. No credit card required.',
   trialDays: 7,
-  contactEmail: 'contact@yourtraveldesk.in',
-  supportEmail: 'support@yourtraveldesk.in',
+  contactEmail: 'supportyourtraveldesk@gmail.com',
+  supportEmail: 'supportyourtraveldesk@gmail.com',
 } as const;
 
 export const NAV_LINKS = [

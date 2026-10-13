@@ -113,7 +113,7 @@ export async function submitDemoRequest(
       return {
         success: false,
         status: 'error',
-        message: 'Notification delivery failed. Please reach out to contact@yourtraveldesk.in.',
+        message: 'Notification delivery failed. Please reach out to supportyourtraveldesk@gmail.com.',
       };
     }
 
@@ -133,7 +133,7 @@ export async function submitDemoRequest(
       success: false,
       status: 'unconfigured',
       message:
-        'Demo submission backend is not yet connected by the administrator. Please email us directly at contact@yourtraveldesk.in or configure DEMO_WEBHOOK_URL.',
+        'Demo submission backend is not yet connected by the administrator. Please email us directly at supportyourtraveldesk@gmail.com or configure DEMO_WEBHOOK_URL.',
     };
   }
 
@@ -161,7 +161,7 @@ export async function submitDemoRequest(
       return {
         success: false,
         status: 'error',
-        message: 'External delivery failed. Please reach out to contact@yourtraveldesk.in.',
+        message: 'External delivery failed. Please reach out to supportyourtraveldesk@gmail.com.',
       };
     }
 
@@ -178,7 +178,7 @@ export async function submitDemoRequest(
       success: false,
       status: 'error',
       message: isTimeout
-        ? 'Submission request timed out. Please email us directly at contact@yourtraveldesk.in.'
+        ? 'Submission request timed out. Please email us directly at supportyourtraveldesk@gmail.com.'
         : 'Unable to reach submission endpoint. Please try again later.',
     };
   }
@@ -230,7 +230,7 @@ export async function submitContactMessage(
       success: false,
       status: 'unconfigured',
       message:
-        'Contact delivery backend is not yet configured. Please reach out directly to support@yourtraveldesk.in.',
+        'Contact delivery backend is not yet configured. Please reach out directly to supportyourtraveldesk@gmail.com.',
     };
   }
 
@@ -275,8 +275,8 @@ export async function submitContactMessage(
       success: false,
       status: 'error',
       message: isTimeout
-        ? 'Submission request timed out. Please reach out to support@yourtraveldesk.in.'
-        : 'Failed to send message. Please reach out to support@yourtraveldesk.in.',
+        ? 'Submission request timed out. Please reach out to supportyourtraveldesk@gmail.com.'
+        : 'Failed to send message. Please reach out to supportyourtraveldesk@gmail.com.',
     };
   }
 }
