@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service — Your Travel Desk',
   description:
     'Terms of Service for Your Travel Desk. Outlines subscription rights, acceptable use, trial terms, and business responsibilities.',
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 export default function TermsPage() {

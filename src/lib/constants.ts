@@ -1,4 +1,5 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourtraveldesk.in';
+export const CANONICAL_SITE_URL = 'https://yourtraveldesk.in';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || CANONICAL_SITE_URL;
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.yourtraveldesk.in';
 
 export const APP_SIGNUP_URL = `${APP_URL}/signup`;

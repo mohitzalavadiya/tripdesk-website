@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy — Your Travel Desk',
   description:
     'Privacy Policy for Your Travel Desk. Explains what information we collect, how we use it, and how we handle inquiries.',
+  alternates: {
+    canonical: '/privacy',
+  },
 };
 
 export default function PrivacyPage() {

@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'How It Works — Step-by-Step Travel Agency Workflow',
   description:
     'Discover how Your Travel Desk turns customer inquiries into confirmed bookings, supplier vouchers, and collected payments in 6 connected steps.',
+  alternates: {
+    canonical: '/how-it-works',
+  },
 };
 
 const STEP_DETAILS = [

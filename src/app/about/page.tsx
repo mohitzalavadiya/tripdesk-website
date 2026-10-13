@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'About Us — Purpose-Built Travel SaaS',
   description:
     'Learn about Your Travel Desk, a focused SaaS operating system engineered to eliminate spreadsheet chaos for independent travel agencies and tour operators.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 const PRINCIPLES = [

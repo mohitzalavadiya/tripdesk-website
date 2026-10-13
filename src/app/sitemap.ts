@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { SITE_URL } from '@/lib/constants';
+import { CANONICAL_SITE_URL } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();
 
   return routes.map((r) => ({
-    url: `${SITE_URL}${r.path}`,
+    url: `${CANONICAL_SITE_URL}${r.path}`,
     lastModified: currentDate,
     changeFrequency: r.changeFrequency,
     priority: r.priority,

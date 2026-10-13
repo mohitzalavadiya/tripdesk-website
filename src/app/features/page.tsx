@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: 'Features — Travel Agency Management Modules',
   description:
     'Explore the 8 verified core modules of Your Travel Desk: Trip workspaces, quotation generator, booking vouchers, client CRM, hotel rates, and payment tracking.',
+  alternates: {
+    canonical: '/features',
+  },
 };
 
 const MODULE_ICONS: Record<string, LucideIcon> = {

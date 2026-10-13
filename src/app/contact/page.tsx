@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Contact Support & Inquiries — Your Travel Desk',
   description:
     'Get in touch with the Your Travel Desk team for product assistance, plan inquiries, and onboarding guidance.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {

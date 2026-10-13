@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Request a Demo — Your Travel Desk',
   description:
     'Schedule a personalized product demonstration of Your Travel Desk with a travel workflow specialist. Explore itineraries, quotations, bookings, and payment tracking.',
+  alternates: {
+    canonical: '/request-demo',
+  },
 };
 
 export default function RequestDemoPage() {

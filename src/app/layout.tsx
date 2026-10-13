@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { SITE_URL, BRAND } from '@/lib/constants';
+import { CANONICAL_SITE_URL, BRAND } from '@/lib/constants';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -13,7 +13,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(CANONICAL_SITE_URL),
   title: {
     default: `${BRAND.name} — Travel Agency Operating System`,
     template: `%s | ${BRAND.name}`,
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: SITE_URL,
+    url: CANONICAL_SITE_URL,
     title: `${BRAND.name} — Travel Agency Operating System`,
     description: BRAND.description,
     siteName: BRAND.name,
     images: [
       {
-        url: `${SITE_URL}/screenshots/dashboard.png`,
+        url: `${CANONICAL_SITE_URL}/screenshots/dashboard.png`,
         width: 1920,
         height: 953,
         alt: 'Your Travel Desk Executive Dashboard Overview',
@@ -56,10 +56,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${BRAND.name} — Travel Agency Operating System`,
     description: BRAND.description,
-    images: [`${SITE_URL}/screenshots/dashboard.png`],
+    images: [`${CANONICAL_SITE_URL}/screenshots/dashboard.png`],
   },
   alternates: {
-    canonical: SITE_URL,
+    canonical: '/',
   },
 };
 
@@ -80,7 +80,7 @@ const jsonLd = {
   author: {
     '@type': 'Organization',
     name: BRAND.name,
-    url: SITE_URL,
+    url: CANONICAL_SITE_URL,
   },
 };
 

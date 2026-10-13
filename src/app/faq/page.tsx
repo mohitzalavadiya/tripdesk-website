@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions — Your Travel Desk',
   description:
     'Comprehensive answers to questions about Your Travel Desk software, 7-day free trial, Starter and Professional plans, quotation generation, and onboarding.',
+  alternates: {
+    canonical: '/faq',
+  },
 };
 
 export default function FaqPage() {
