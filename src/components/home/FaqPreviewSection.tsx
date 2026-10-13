@@ -9,21 +9,21 @@ export function FaqPreviewSection() {
   const previewItems = FAQ_ITEMS.slice(0, 5);
 
   return (
-    <section className="py-20 sm:py-24 lg:py-32 bg-white border-b border-slate-200/80">
+    <section className="py-12 sm:py-20 lg:py-32 bg-white border-b border-slate-200/80">
       <Container size="narrow">
         {/* Perk-Style Editorial Heading */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-950 leading-[1.1]">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-950 leading-[1.1]">
             Got questions?
             <br />
             We&apos;ve got answers.
           </h2>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-3 sm:mt-5 text-sm sm:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed">
             Everything you need to know about {BRAND.name}, our 7-day free trial, and onboarding.
           </p>
         </div>
 
-        <div className="rounded-[32px] border border-slate-200/80 bg-[#F4F3EE] p-6 sm:p-10 shadow-2xs">
+        <div className="rounded-2xl sm:rounded-[32px] border border-slate-200/80 bg-[#F4F3EE] p-4 sm:p-10 shadow-2xs">
           <FaqAccordion items={previewItems} allowMultiple />
         </div>
 

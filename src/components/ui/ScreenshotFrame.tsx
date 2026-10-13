@@ -93,7 +93,7 @@ export function ScreenshotFrame({
 
               {/* Floating interactive chips */}
               {floatingChips && floatingChips.length > 0 && (
-                <div className="pointer-events-none absolute inset-0 p-3 sm:p-4 flex flex-col justify-between">
+                <div className="pointer-events-none absolute inset-0 p-3 sm:p-4 hidden sm:flex flex-col justify-between">
                   {floatingChips.map((chip, idx) => {
                     const ChipIcon = chip.icon;
                     const posClass =

@@ -17,39 +17,39 @@ export function HeroSection() {
       <Container size="default">
         {/* Centered Editorial Header (Locked to 2 Lines on Desktop matching Perk) */}
         <div className="max-w-5xl lg:max-w-6xl mx-auto text-center">
-          <h1 className="text-[30px] sm:text-5xl lg:text-[70px] xl:text-[76px] font-black tracking-tight text-slate-950 leading-[1.1] sm:leading-[1.05] break-words">
+          <h1 className="text-[24px] xs:text-[28px] sm:text-5xl lg:text-[70px] xl:text-[76px] font-black tracking-tight text-slate-950 leading-[1.14] sm:leading-[1.05] break-words">
             Automate travel, itineraries,<br className="hidden sm:inline" /> and bookings in one platform
           </h1>
 
           {/* Review / Social Proof Rating Strip (Perk Style: Crisp Dark Stars) */}
-          <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-slate-900">
+          <div className="mt-3.5 sm:mt-5 flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-semibold text-slate-900">
             {/* Circular G Badge */}
-            <div className="h-4.5 w-4.5 rounded-full border border-slate-900 flex items-center justify-center text-[10px] font-black text-slate-900">
+            <div className="h-4 w-4 sm:h-4.5 sm:w-4.5 rounded-full border border-slate-900 flex items-center justify-center text-[9px] sm:text-[10px] font-black text-slate-900 shrink-0">
               G
             </div>
             {/* 5 Solid Dark Stars */}
             <div className="flex items-center gap-0.5 text-slate-950">
-              <Star className="h-3.5 w-3.5 fill-slate-950 text-slate-950" />
-              <Star className="h-3.5 w-3.5 fill-slate-950 text-slate-950" />
-              <Star className="h-3.5 w-3.5 fill-slate-950 text-slate-950" />
-              <Star className="h-3.5 w-3.5 fill-slate-950 text-slate-950" />
-              <Star className="h-3.5 w-3.5 fill-slate-950 text-slate-950" />
+              <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-slate-950 text-slate-950 shrink-0" />
+              <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-slate-950 text-slate-950 shrink-0" />
+              <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-slate-950 text-slate-950 shrink-0" />
+              <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-slate-950 text-slate-950 shrink-0" />
+              <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-slate-950 text-slate-950 shrink-0" />
             </div>
-            <span className="font-bold text-slate-900 tracking-tight">+2,060 reviews</span>
+            <span className="font-bold text-slate-900 tracking-tight">+100 reviews</span>
           </div>
 
           {/* Dual Pill Action Buttons (Brand Logo Color Combination: Indigo-600 + Slate White Pill) */}
-          <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <div className="mt-5 sm:mt-7 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5">
             <Link
               href="/request-demo"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white px-7 py-3 text-sm sm:text-base font-bold shadow-md shadow-indigo-600/25 transition-all w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-base font-bold shadow-md shadow-indigo-600/25 transition-all w-full sm:w-auto"
             >
               <span>Book a demo</span>
               <ChevronRight className="h-4 w-4 stroke-[2.5]" />
             </Link>
             <a
               href="#product-overview"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-50 active:scale-[0.98] text-slate-900 border border-slate-300 px-7 py-3 text-sm sm:text-base font-bold shadow-xs transition-all w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white hover:bg-slate-50 active:scale-[0.98] text-slate-900 border border-slate-300 px-5 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-base font-bold shadow-xs transition-all w-full sm:w-auto"
             >
               <span>Explore our product</span>
               <ChevronDown className="h-4 w-4 stroke-[2.5] text-slate-500" />

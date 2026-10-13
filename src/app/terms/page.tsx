@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="py-20 sm:py-28 lg:py-32 bg-white">
+    <div className="py-10 sm:py-20 lg:py-32 bg-white">
       <Container size="narrow">
         <SectionHeading
           eyebrow="Terms & Conditions"
@@ -22,11 +22,11 @@ export default function TermsPage() {
           description="Guidelines and terms governing your use of Your Travel Desk."
         />
 
-        <div className="mt-8 mb-8 pb-4 border-b border-slate-200 text-xs sm:text-sm text-slate-500">
+        <div className="mt-6 mb-6 pb-3 border-b border-slate-200 text-xs sm:text-sm text-slate-500">
           Last updated: 13 October 2026
         </div>
 
-        <div className="space-y-8 text-sm sm:text-base text-slate-600 leading-relaxed">
+        <div className="space-y-6 sm:space-y-8 text-xs sm:text-base text-slate-600 leading-relaxed">
           <p className="font-medium text-slate-700">
             Your Travel Desk provides travel agency management software to help travel businesses manage trips, quotations, bookings, and related operations.
           </p>
@@ -35,7 +35,7 @@ export default function TermsPage() {
           </p>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">1. Using the Service</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">1. Using the Service</h2>
             <p>
               You may use Your Travel Desk for legitimate business purposes. You are responsible for providing accurate account information, protecting your login credentials, and ensuring that you have the necessary permissions to use the information you enter into the service.
             </p>
@@ -45,7 +45,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">2. Seven-Day Free Trial</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">2. Seven-Day Free Trial</h2>
             <p>
               New accounts are offered a seven-day free trial, subject to the conditions displayed during signup. The trial provides Professional-level features during the trial period, as implemented by the service.
             </p>
@@ -58,7 +58,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">3. Subscription Plans and Prices</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">3. Subscription Plans and Prices</h2>
             <p>The advertised plans are:</p>
             <ul className="list-disc pl-5 mt-2 space-y-1">
               <li><strong>Starter:</strong> ₹499 per month or ₹4,999 per year.</li>
@@ -73,7 +73,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">4. Payments and Renewals</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">4. Payments and Renewals</h2>
             <p>
               Subscription payments are currently handled through manual UPI or bank transfer. Payment requests are subject to verification before a subscription is activated.
             </p>
@@ -86,7 +86,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">5. Ending a Subscription</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">5. Ending a Subscription</h2>
             <p>
               The current service does not provide a self-service subscription cancellation feature.
             </p>
@@ -99,7 +99,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">6. Annual Refund Requests</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">6. Annual Refund Requests</h2>
             <p>
               If you have purchased an annual subscription, you may contact support to request a refund for eligible unused subscription time.
             </p>
@@ -115,7 +115,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">7. Your Business Data</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">7. Your Business Data</h2>
             <p>
               You remain responsible for the information you enter into Your Travel Desk, including customer details, travel arrangements, quotations, supplier information, and business records.
             </p>
@@ -128,7 +128,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">8. Access and Data Retention</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">8. Access and Data Retention</h2>
             <p>
               When a trial or subscription expires, or access is otherwise restricted, some features may become unavailable. Expired trial workspaces are intended to retain read-only access to existing data, as implemented by the service.
             </p>
@@ -144,7 +144,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">9. Service Availability</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">9. Service Availability</h2>
             <p>
               We aim to provide a useful and reliable service, but uninterrupted or error-free operation cannot be guaranteed at all times. Maintenance, technical issues, or third-party service disruptions may affect availability.
             </p>
@@ -154,7 +154,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">10. Responsibility and Applicable Law</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">10. Responsibility and Applicable Law</h2>
             <p>
               You are responsible for how you use the service and for verifying business information before relying on it.
             </p>
@@ -167,14 +167,14 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">11. Changes to These Terms</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">11. Changes to These Terms</h2>
             <p>
               We may update these terms as the service develops. The latest version will be published on this page with its revised date, with notice provided where required.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">12. Contact Us</h2>
+            <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">12. Contact Us</h2>
             <p>For questions about subscriptions, payments, refunds, or the service:</p>
             <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50/70 p-4 text-sm space-y-1">
               <p className="font-bold text-slate-900">Your Travel Desk</p>

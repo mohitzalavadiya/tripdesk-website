@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import { CANONICAL_SITE_URL, BRAND } from '@/lib/constants';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -99,6 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+        <ScrollToTop />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'teal' | 'navy' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'teal' | 'navy' | 'secondary' | 'outline' | 'ghost' | 'outlineDark';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   isExternal?: boolean;
@@ -33,6 +33,8 @@ export function Button({
       'bg-slate-100 text-slate-900 hover:bg-slate-200/90 focus-visible:outline-slate-400',
     outline:
       'border border-slate-200/90 bg-white text-slate-800 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 focus-visible:outline-indigo-600 shadow-2xs hover:shadow-xs',
+    outlineDark:
+      'border border-slate-700 bg-slate-800/60 text-white hover:bg-slate-800 hover:border-slate-600 hover:text-white focus-visible:outline-white shadow-xs',
     ghost:
       'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 focus-visible:outline-indigo-600',
   }[variant];

@@ -40,7 +40,7 @@ const MODULE_ICONS: Record<string, LucideIcon> = {
 
 export default function FeaturesPage() {
   return (
-    <div className="py-20 sm:py-28 lg:py-32 bg-white">
+    <div className="py-10 sm:py-20 lg:py-32 bg-white">
       <Container size="default">
         <SectionHeading
           eyebrow="Verified Product Modules"
@@ -49,7 +49,7 @@ export default function FeaturesPage() {
         />
 
         {/* Feature Deep-Dive Grid */}
-        <div className="mt-16 sm:mt-20 space-y-24 lg:space-y-32">
+        <div className="mt-10 sm:mt-20 space-y-12 sm:space-y-24 lg:space-y-32">
           {PRODUCT_MODULES.map((module, idx) => {
             const Icon = MODULE_ICONS[module.id] || Compass;
             const isReversed = idx % 2 === 1;
@@ -58,41 +58,43 @@ export default function FeaturesPage() {
               <div
                 key={module.id}
                 id={module.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-slate-100 pb-20 sm:pb-24 last:border-0 last:pb-0"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center border-b border-slate-100 pb-12 sm:pb-24 last:border-0 last:pb-0"
               >
                 {/* Details Column */}
                 <div className={`lg:col-span-5 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/80 text-xs font-bold text-indigo-700 mb-4 shadow-2xs">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/80 text-xs font-bold text-indigo-700 mb-3 sm:mb-4 shadow-2xs">
                     <Icon className="h-3.5 w-3.5 text-indigo-600" />
                     <span>{module.badge}</span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
+                  <h2 className="text-xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
                     {module.title}
                   </h2>
 
-                  <p className="mt-4 text-base text-slate-700 leading-relaxed font-semibold">
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-700 leading-relaxed font-semibold">
                     {module.shortDesc}
                   </p>
 
-                  <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {module.longDesc}
                   </p>
 
-                  <div className="mt-8 flex items-center gap-3.5">
+                  <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3.5">
                     <Button
                       href={APP_SIGNUP_URL}
                       variant="primary"
                       size="sm"
                       isExternal
+                      className="text-xs sm:text-sm px-4 sm:px-5"
                     >
                       <span>Try in 7-Day Trial</span>
-                      <ArrowRight className="h-4 w-4 ml-1" />
+                      <ArrowRight className="h-3.5 w-3.5 ml-1" />
                     </Button>
                     <Button
                       href="/request-demo"
                       variant="outline"
                       size="sm"
+                      className="text-xs sm:text-sm px-4 sm:px-5"
                     >
                       Book Demo
                     </Button>
@@ -125,7 +127,7 @@ export default function FeaturesPage() {
         </div>
 
         {/* Bottom Conversion Card */}
-        <div className="mt-24 rounded-3xl bg-[#0F172A] p-8 sm:p-14 text-center text-white shadow-2xl border border-slate-800 relative overflow-hidden">
+        <div className="mt-14 sm:mt-24 rounded-2xl sm:rounded-3xl bg-[#0F172A] p-5 sm:p-14 text-center text-white shadow-2xl border border-slate-800 relative overflow-hidden">
           <div
             className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-full max-w-xs sm:w-96 opacity-25 blur-2xl"
             style={{
@@ -134,30 +136,30 @@ export default function FeaturesPage() {
             aria-hidden="true"
           />
 
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
+          <h3 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight">
             Ready to streamline your travel desk?
           </h3>
-          <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-xl mx-auto font-normal leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-300 max-w-xl mx-auto font-normal leading-relaxed">
             Get instant access to all 8 core management modules. No setup fees, no credit card required.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button
               href={APP_SIGNUP_URL}
               variant="primary"
               size="lg"
               isExternal
-              className="w-full sm:w-auto shadow-md shadow-indigo-600/30"
+              className="w-full sm:w-auto shadow-md shadow-indigo-600/30 text-xs sm:text-base py-3 sm:py-3.5"
             >
               <span>{BRAND.primaryCta}</span>
               <ArrowRight className="h-4 w-4 ml-1" />
             </Button>
             <Button
               href="/request-demo"
-              variant="outline"
+              variant="outlineDark"
               size="lg"
-              className="w-full sm:w-auto bg-transparent border-slate-700 text-white hover:bg-slate-800"
+              className="w-full sm:w-auto text-xs sm:text-base py-3 sm:py-3.5"
             >
-              Request a Walkthrough
+              Book a Demo
             </Button>
           </div>
         </div>

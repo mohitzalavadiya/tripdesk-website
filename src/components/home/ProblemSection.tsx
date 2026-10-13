@@ -40,25 +40,25 @@ const PILLARS = [
 
 export function ProblemSection() {
   return (
-    <section className="bg-white py-20 sm:py-24 lg:py-32 border-b border-slate-200/80">
+    <section className="bg-white py-12 sm:py-20 lg:py-32 border-b border-slate-200/80">
       <Container size="default">
         {/* Perk-Style Editorial Header */}
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-950 leading-[1.1]">
+          <h2 className="text-2xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-950 leading-[1.14] sm:leading-[1.1]">
             Take control of your agency.
             <br />
             From first lead to final ledger.
           </h2>
 
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3.5 sm:mt-5 text-xs sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             That&apos;s what happens when you have centralized control over client itineraries,
             automated contracted tariffs, and a platform your travel consultants actually love to use.
           </p>
 
-          <div className="mt-6 flex items-center justify-center gap-3">
+          <div className="mt-5 sm:mt-6 flex items-center justify-center gap-3">
             <Link
               href="/how-it-works"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 font-semibold text-sm px-6 py-3 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 font-semibold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 shadow-xs transition-all duration-200 hover:-translate-y-0.5"
             >
               <span>See how it works</span>
               <ArrowRight className="h-4 w-4" />
@@ -67,22 +67,22 @@ export function ProblemSection() {
         </div>
 
         {/* Perk-Style 4-Pillar Strategic Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 mt-12 sm:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-7 mt-8 sm:mt-16">
           {PILLARS.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.title}
-                className="group relative flex flex-col justify-between rounded-[28px] border border-slate-200/80 bg-[#F4F3EE] p-8 sm:p-9 transition-all duration-300 hover:bg-white hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1.5"
+                className="group relative flex flex-col justify-between rounded-2xl sm:rounded-[28px] border border-slate-200/80 bg-[#F4F3EE] p-5 sm:p-9 transition-all duration-300 hover:bg-white hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/5 hover:-translate-y-1.5"
               >
                 <div>
                   {/* Clean Geometric Icon */}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-slate-200/80 text-indigo-600 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors duration-200">
-                    <Icon className="h-5 w-5" />
+                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-white border border-slate-200/80 text-indigo-600 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors duration-200">
+                    <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                   </div>
 
                   {/* Micro Uppercase Category Tag */}
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-indigo-600 transition-colors mt-6 block">
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-indigo-600 transition-colors mt-4 sm:mt-6 block">
                     {pillar.tag}
                   </span>
 

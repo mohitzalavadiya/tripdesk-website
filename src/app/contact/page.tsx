@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="py-20 sm:py-28 lg:py-32 bg-white">
+    <div className="py-10 sm:py-20 lg:py-32 bg-white">
       <Container size="narrow">
         <SectionHeading
           eyebrow="Direct Communication"
@@ -26,42 +26,42 @@ export default function ContactPage() {
           description={`Have questions about ${BRAND.name}, onboarding your agency team, or technical requirements? Reach out directly using the form below or via our support channels.`}
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
-          <div className="rounded-2xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-xs">
-            <div className="flex items-center gap-3 mb-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 shadow-2xs">
-                <Mail className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900">Email Support</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5 mb-6 sm:mb-10">
+          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-slate-50/70 p-3.5 sm:p-5 shadow-xs flex items-start gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 shadow-2xs shrink-0 mt-0.5">
+              <Mail className="h-4 w-4" />
             </div>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              For general inquiries and operational support:
-            </p>
-            <a
-              href={`mailto:${BRAND.contactEmail}`}
-              className="mt-2.5 inline-block text-sm font-bold text-indigo-600 hover:text-indigo-700 hover:underline break-all"
-            >
-              {BRAND.contactEmail}
-            </a>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">Email Support</h3>
+              <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-normal">
+                General inquiries & operational help:
+              </p>
+              <a
+                href={`mailto:${BRAND.contactEmail}`}
+                className="mt-1.5 inline-block text-xs sm:text-sm font-bold text-indigo-600 hover:text-indigo-700 hover:underline break-all"
+              >
+                {BRAND.contactEmail}
+              </a>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-xs">
-            <div className="flex items-center gap-3 mb-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 shadow-2xs">
-                <Calendar className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-slate-900">Looking for a Demo?</h3>
+          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-slate-50/70 p-3.5 sm:p-5 shadow-xs flex items-start gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 shadow-2xs shrink-0 mt-0.5">
+              <Calendar className="h-4 w-4" />
             </div>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              Want a personalized walkthrough of the platform?
-            </p>
-            <Link
-              href="/request-demo"
-              className="mt-2.5 inline-flex items-center gap-1.5 text-sm font-bold text-indigo-600 hover:text-indigo-700 hover:underline"
-            >
-              <span>Go to Demo Request Page</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">Looking for a Demo?</h3>
+              <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-normal">
+                Personalized guided walkthrough:
+              </p>
+              <Link
+                href="/request-demo"
+                className="mt-1.5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-indigo-600 hover:text-indigo-700 hover:underline"
+              >
+                <span>Book a Demo</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </div>
         </div>
 

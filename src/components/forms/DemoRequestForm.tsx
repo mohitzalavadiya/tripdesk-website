@@ -75,7 +75,7 @@ export function DemoRequestForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-8 text-center sm:p-10">
+      <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5 text-center sm:p-10">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-4">
           <CheckCircle2 className="h-8 w-8" />
         </div>
@@ -88,7 +88,7 @@ export function DemoRequestForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 rounded-2xl border border-slate-200 bg-white p-4 sm:p-8 shadow-sm">
       {status === 'unconfigured' && (
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs text-amber-900 flex items-start gap-3">
           <Info className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
@@ -248,7 +248,7 @@ export function DemoRequestForm() {
           variant="primary"
           size="lg"
           disabled={loading}
-          className="w-full justify-center shadow-md shadow-indigo-600/20"
+          className="w-full justify-center shadow-md shadow-indigo-600/20 text-xs sm:text-base py-3 sm:py-3.5"
         >
           {loading ? (
             <>
@@ -256,7 +256,7 @@ export function DemoRequestForm() {
               <span>Submitting Request...</span>
             </>
           ) : (
-            <span>Request Personalized Walkthrough</span>
+            <span>Book a Demo</span>
           )}
         </Button>
         <p className="text-center text-xs text-slate-500 leading-normal">

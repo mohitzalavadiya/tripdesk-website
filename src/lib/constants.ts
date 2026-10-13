@@ -57,7 +57,7 @@ export const PRICING_PLANS = [
   {
     id: 'starter',
     name: 'Starter',
-    badge: '7-Day Free Trial Included',
+    // badge: '7-Day Free Trial Included',
     tagline: 'Essential travel planning & quotation workflow for boutique operators.',
     monthlyPrice: 499,
     yearlyPrice: 4999, // ~₹416/mo (Save ~17%)
@@ -65,7 +65,7 @@ export const PRICING_PLANS = [
     yearlyDisplay: '₹4,999',
     yearlySavings: 'Save ~17%',
     popular: false,
-    ctaText: 'Start 7-Day Free Trial',
+    ctaText: 'Choose Starter',
     ctaHref: APP_SIGNUP_URL,
     isExternal: true,
     features: [

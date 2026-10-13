@@ -29,7 +29,7 @@ export function PricingContent() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   return (
-    <div className="py-20 sm:py-28 lg:py-32 bg-white">
+    <div className="py-10 sm:py-20 lg:py-32 bg-white">
       <Container size="default">
         <SectionHeading
           eyebrow="Transparent Investment"
@@ -69,7 +69,7 @@ export function PricingContent() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
           {PRICING_PLANS.map((plan) => {
             const isPro = plan.id === 'professional';
             const price = billingCycle === 'monthly' ? plan.monthlyDisplay : plan.yearlyDisplay;
@@ -78,31 +78,33 @@ export function PricingContent() {
             return (
               <div
                 key={plan.id}
-                className={`relative flex flex-col justify-between rounded-3xl p-8 sm:p-9 transition-all duration-300 ${
+                className={`relative flex flex-col justify-between rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-9 transition-all duration-300 ${
                   isPro
                     ? 'border-2 border-indigo-600 bg-white shadow-2xl shadow-indigo-600/10 ring-1 ring-indigo-500/20 md:-translate-y-2'
                     : 'border border-slate-200/90 bg-slate-50/50 shadow-xs hover:border-slate-300 hover:shadow-md'
                 }`}
               >
                 {isPro && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-4 py-1 text-xs font-bold text-white shadow-sm flex items-center gap-1.5 uppercase tracking-wide">
-                    <Sparkles className="h-3 w-3" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-3.5 sm:px-4 py-1 text-[11px] sm:text-xs font-bold text-white shadow-sm flex items-center gap-1.5 uppercase tracking-wide whitespace-nowrap">
+                    <Sparkles className="h-3 w-3 shrink-0" />
                     <span>Best for Growing Agencies</span>
                   </div>
                 )}
 
                 <div>
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-2xl font-black text-slate-900">{plan.name}</h3>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-bold ${
-                        isPro
-                          ? 'bg-indigo-50 text-indigo-700 border border-indigo-200/80'
-                          : 'bg-white text-slate-700 border border-slate-200'
-                      }`}
-                    >
-                      {plan.badge}
-                    </span>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900">{plan.name}</h3>
+                    {'badge' in plan && plan.badge && (
+                      <span
+                        className={`rounded-full px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs font-bold whitespace-nowrap ${
+                          isPro
+                            ? 'bg-indigo-50 text-indigo-700 border border-indigo-200/80'
+                            : 'bg-white text-slate-700 border border-slate-200'
+                        }`}
+                      >
+                        {plan.badge}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-2.5 text-sm text-slate-600 font-normal leading-relaxed">
                     {plan.tagline}
@@ -167,7 +169,7 @@ export function PricingContent() {
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <table className="w-full min-w-[540px] text-left text-sm border-collapse">
+            <table className="w-full min-w-135 text-left text-sm border-collapse">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50/80">
                   <th className="p-4 font-bold text-slate-900">Capability / Entitlement</th>

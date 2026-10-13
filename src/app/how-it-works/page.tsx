@@ -75,7 +75,7 @@ const STEP_DETAILS = [
 
 export default function HowItWorksPage() {
   return (
-    <div className="py-20 sm:py-28 lg:py-32 bg-white">
+    <div className="py-10 sm:py-20 lg:py-32 bg-white">
       <Container size="default">
         <SectionHeading
           eyebrow="Connected Agency Workflow"
@@ -84,7 +84,7 @@ export default function HowItWorksPage() {
         />
 
         {/* 6 Step Cards with Details */}
-        <div className="mt-16 sm:mt-20 space-y-24 lg:space-y-32">
+        <div className="mt-10 sm:mt-20 space-y-12 sm:space-y-24 lg:space-y-32">
           {STEP_DETAILS.map((step, idx) => {
             const Icon = step.icon;
             const isReversed = idx % 2 === 1;
@@ -92,28 +92,28 @@ export default function HowItWorksPage() {
             return (
               <div
                 key={step.step}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center border-b border-slate-100 pb-20 sm:pb-24 last:border-0 last:pb-0"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center border-b border-slate-100 pb-12 sm:pb-24 last:border-0 last:pb-0"
               >
                 {/* Text description */}
                 <div className={`lg:col-span-5 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-sm font-mono font-bold text-indigo-700 shadow-2xs">
+                  <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-indigo-50 text-xs sm:text-sm font-mono font-bold text-indigo-700 shadow-2xs">
                       {step.step}
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">
+                    <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-indigo-600">
                       Phase {idx + 1}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
+                  <h2 className="text-xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight">
                     {step.title}
                   </h2>
 
-                  <p className="mt-4 text-base text-slate-700 font-semibold leading-relaxed">
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-700 font-semibold leading-relaxed">
                     {step.summary}
                   </p>
 
-                  <p className="mt-3 text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {step.details}
                   </p>
                 </div>
@@ -144,7 +144,7 @@ export default function HowItWorksPage() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-24 rounded-3xl bg-[#0F172A] p-8 sm:p-14 text-center text-white shadow-2xl border border-slate-800 relative overflow-hidden">
+        <div className="mt-14 sm:mt-24 rounded-2xl sm:rounded-3xl bg-[#0F172A] p-5 sm:p-14 text-center text-white shadow-2xl border border-slate-800 relative overflow-hidden">
           <div
             className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-full max-w-xs sm:w-96 opacity-25 blur-2xl"
             style={{
@@ -153,30 +153,30 @@ export default function HowItWorksPage() {
             aria-hidden="true"
           />
 
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
+          <h3 className="text-xl sm:text-3xl lg:text-4xl font-black tracking-tight">
             Ready to experience this workflow firsthand?
           </h3>
-          <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-xl mx-auto font-normal leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-slate-300 max-w-xl mx-auto font-normal leading-relaxed">
             Test the entire process with sample trips in our 7-day free trial, or schedule a personalized team demo.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button
               href={APP_SIGNUP_URL}
               variant="primary"
               size="lg"
               isExternal
-              className="w-full sm:w-auto shadow-md shadow-indigo-600/30"
+              className="w-full sm:w-auto shadow-md shadow-indigo-600/30 text-xs sm:text-base py-3 sm:py-3.5"
             >
               <span>{BRAND.primaryCta}</span>
               <ArrowRight className="h-4 w-4 ml-1" />
             </Button>
             <Button
               href="/request-demo"
-              variant="outline"
+              variant="outlineDark"
               size="lg"
-              className="w-full sm:w-auto bg-transparent border-slate-700 text-white hover:bg-slate-800"
+              className="w-full sm:w-auto text-xs sm:text-base py-3 sm:py-3.5"
             >
-              Request a Walkthrough
+              Book a Demo
             </Button>
           </div>
         </div>

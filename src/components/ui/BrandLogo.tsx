@@ -59,7 +59,7 @@ export function BrandLogo({
             alt="Your Travel Desk"
             width={160}
             height={40}
-            className="h-7 sm:h-16 w-auto shrink-0 max-w-35 sm:max-w-none"
+            className="h-12 sm:h-16 w-auto shrink-0 max-w-40 sm:max-w-none"
             priority
           />
         </div>
