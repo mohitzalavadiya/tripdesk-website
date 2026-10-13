@@ -40,13 +40,20 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   }, [isOpen, onClose]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    if (!isOpen) return;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const originalTouchAction = document.body.style.touchAction;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      document.body.style.touchAction = originalTouchAction;
     };
   }, [isOpen]);
 
@@ -54,20 +61,26 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 lg:hidden"
+      className="fixed inset-0 z-50 lg:hidden overscroll-none select-none"
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity touch-none overscroll-none"
         onClick={onClose}
+        onTouchMove={(e) => {
+          e.preventDefault();
+        }}
         aria-hidden="true"
       />
 
       {/* Slide-over menu */}
-      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-[290px] sm:max-w-xs bg-white p-4 sm:p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+      <div
+        className="fixed inset-y-0 right-0 z-50 w-full max-w-[290px] sm:max-w-xs bg-white p-4 sm:p-6 shadow-2xl flex flex-col justify-between overflow-y-auto overscroll-contain select-auto"
+        style={{ touchAction: 'pan-y' }}
+      >
         <div>
           <div className="flex items-center justify-between pb-4 sm:pb-6 border-b border-slate-200">
             <div onClick={onClose}>
