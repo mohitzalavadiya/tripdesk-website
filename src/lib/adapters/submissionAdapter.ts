@@ -1,4 +1,9 @@
 import { DemoRequestInput, ContactMessageInput } from '../validation/demoSchema';
+import {
+  isResendConfigured,
+  sendContactEmailNotification,
+  sendDemoEmailNotification,
+} from '../email/resend';
 
 export interface SubmissionResult {
   success: boolean;
@@ -94,6 +99,32 @@ export async function submitDemoRequest(
     };
   }
 
+  // Strip honeypot from forwarded payload
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { website, ...cleanData } = data;
+
+  const timeoutMs = resolveTimeoutMs(options);
+
+  // 1. Resend Delivery Path (Preferred when RESEND_API_KEY is configured)
+  if (isResendConfigured()) {
+    const resendResult = await sendDemoEmailNotification(cleanData, { timeoutMs });
+    if (!resendResult.success) {
+      // Per approved dispatch rule: If Resend is attempted and fails, do NOT automatically fall back to webhook
+      return {
+        success: false,
+        status: 'error',
+        message: 'Notification delivery failed. Please reach out to contact@yourtraveldesk.in.',
+      };
+    }
+
+    return {
+      success: true,
+      status: 'delivered',
+      message: 'Your demo request has been received. Our team will contact you shortly.',
+    };
+  }
+
+  // 2. Webhook Fallback Path (Preserved when Resend is unconfigured)
   const webhookUrl = process.env.DEMO_WEBHOOK_URL;
 
   // If no delivery backend is configured, reject transparently
@@ -113,12 +144,6 @@ export async function submitDemoRequest(
       message: 'Configured delivery endpoint is not a valid HTTP/HTTPS URL.',
     };
   }
-
-  // Strip honeypot from forwarded payload
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { website, ...cleanData } = data;
-
-  const timeoutMs = resolveTimeoutMs(options);
 
   try {
     const res = await fetch(webhookUrl, {
@@ -172,6 +197,32 @@ export async function submitContactMessage(
     };
   }
 
+  // Strip honeypot from forwarded payload
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { website, ...cleanData } = data;
+
+  const timeoutMs = resolveTimeoutMs(options);
+
+  // 1. Resend Delivery Path (Preferred when RESEND_API_KEY is configured)
+  if (isResendConfigured()) {
+    const resendResult = await sendContactEmailNotification(cleanData, { timeoutMs });
+    if (!resendResult.success) {
+      // Per approved dispatch rule: If Resend is attempted and fails, do NOT automatically fall back to webhook
+      return {
+        success: false,
+        status: 'error',
+        message: 'Delivery service returned an error. Please try again later.',
+      };
+    }
+
+    return {
+      success: true,
+      status: 'delivered',
+      message: 'Thank you for reaching out. Your message has been safely delivered.',
+    };
+  }
+
+  // 2. Webhook Fallback Path (Preserved when Resend is unconfigured)
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL || process.env.DEMO_WEBHOOK_URL;
 
   if (!webhookUrl) {
@@ -190,12 +241,6 @@ export async function submitContactMessage(
       message: 'Configured delivery endpoint is not a valid HTTP/HTTPS URL.',
     };
   }
-
-  // Strip honeypot from forwarded payload
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { website, ...cleanData } = data;
-
-  const timeoutMs = resolveTimeoutMs(options);
 
   try {
     const res = await fetch(webhookUrl, {

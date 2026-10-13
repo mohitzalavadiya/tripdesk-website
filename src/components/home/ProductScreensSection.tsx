@@ -185,16 +185,16 @@ export function ProductScreensSection() {
                 >
                   <div className="relative mx-auto rounded-[28px] border border-slate-200/90 bg-white p-3 sm:p-4 shadow-xl transition-all duration-300">
                     {/* Frame Top Header */}
-                    <div className="flex h-9 items-center justify-between border-b border-slate-100 pb-2.5 mb-2.5 px-1 sm:px-2 gap-2">
-                      <div className="flex items-center gap-1.5 min-w-0">
-                        <div className="h-2.5 w-2.5 rounded-full bg-rose-400 shrink-0" />
-                        <div className="h-2.5 w-2.5 rounded-full bg-amber-400 shrink-0" />
-                        <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 shrink-0" />
-                        <span className="ml-1 sm:ml-2 text-[10px] sm:text-[11px] font-semibold text-slate-400 truncate max-w-[110px] sm:max-w-none">
+                    <div className="flex h-9 items-center justify-between border-b border-slate-100 pb-2.5 mb-2.5 px-2">
+                      <div className="flex items-center gap-1.5">
+                        <div className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                        <span className="ml-2 text-[11px] font-semibold text-slate-400">
                           app.yourtraveldesk.com/{screen.id}
                         </span>
                       </div>
-                      <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-2 sm:px-2.5 py-0.5 rounded-full shrink-0">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-2.5 py-0.5 rounded-full">
                         Live System
                       </span>
                     </div>
