@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { trackEvent } from '@/lib/analytics/gtag';
 import { BRAND } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
@@ -241,7 +242,7 @@ export function DemoRequestForm() {
         </label>
       </div>
 
-      <div className="pt-2">
+      <div className="pt-2 space-y-3">
         <Button
           type="submit"
           variant="primary"
@@ -258,6 +259,16 @@ export function DemoRequestForm() {
             <span>Request Personalized Walkthrough</span>
           )}
         </Button>
+        <p className="text-center text-xs text-slate-500 leading-normal">
+          By submitting this form, you acknowledge our{' '}
+          <Link
+            href="/privacy"
+            className="text-indigo-600 font-medium underline hover:text-indigo-700 transition-colors"
+          >
+            Privacy Policy
+          </Link>
+          . We use your information to respond to your request.
+        </p>
       </div>
     </form>
   );

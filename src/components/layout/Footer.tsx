@@ -148,7 +148,6 @@ export function Footer() {
             <Link href="/terms" className="hover:text-slate-300 transition-colors">
               Terms of Service
             </Link>
-            <span className="text-slate-500">Target: yourtraveldesk.in</span>
           </div>
         </div>
       </Container>

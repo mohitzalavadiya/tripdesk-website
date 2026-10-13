@@ -2,13 +2,11 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { BRAND } from '@/lib/constants';
-import { AlertTriangle, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy (Draft) — Your Travel Desk',
+  title: 'Privacy Policy — Your Travel Desk',
   description:
-    'Draft Privacy Policy foundation for Your Travel Desk. Identifies data handling practices and points requiring owner confirmation prior to public publication.',
+    'Privacy Policy for Your Travel Desk. Explains what information we collect, how we use it, and how we handle inquiries.',
 };
 
 export default function PrivacyPage() {
@@ -18,76 +16,112 @@ export default function PrivacyPage() {
         <SectionHeading
           eyebrow="Compliance & Data Protection"
           title="Privacy Policy"
-          description="Draft policy framework awaiting final owner review and legal confirmation."
+          description="How we collect, use, and protect your information when you use our marketing website."
         />
 
-        {/* Mandatory Draft Notice Banner */}
-        <div className="rounded-xl border border-amber-300 bg-amber-50/80 p-5 text-amber-900 shadow-2xs mb-10">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
-            <div className="space-y-1.5 text-xs sm:text-sm">
-              <p className="font-bold uppercase tracking-wider text-amber-800">
-                Notice: Draft Legal Foundation
-              </p>
-              <p>
-                This document serves as an architectural legal foundation. Specific corporate registration details, jurisdiction, subprocessor listings, and retention schedules must be confirmed by the site owner and legal counsel prior to formal publication.
-              </p>
-            </div>
-          </div>
+        <div className="mt-8 mb-8 pb-4 border-b border-slate-200 text-xs sm:text-sm text-slate-500">
+          Last updated: 13 October 2026
         </div>
 
         <div className="space-y-8 text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="font-medium text-slate-700">
+            Your Travel Desk provides travel agency management software for managing trips, quotations, bookings, and related business operations.
+          </p>
+
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">1. Scope & Application</h2>
+            <h2 className="text-xl font-black text-slate-900 mb-3">1. Information We Collect</h2>
             <p>
-              This Privacy Policy describes how {BRAND.name} (operated under the proposed business entity, subject to final owner confirmation) collects, uses, and safeguards information when you visit our marketing website (yourtraveldesk.in) or use our travel agency software suite.
+              When you submit a demo request or contact form, we may collect your name, email address, agency name, optional phone number, inquiry details, and information about your business needs.
+            </p>
+            <p className="mt-2">
+              If you choose to receive product updates, we may also use your stated preference to send occasional updates.
+            </p>
+            <p className="mt-2 text-slate-700 font-medium">
+              Please do not submit passwords, payment details, or sensitive personal information through our marketing forms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">2. Information Collected</h2>
+            <h2 className="text-xl font-black text-slate-900 mb-3">2. How We Use Your Information</h2>
             <p>
-              We collect information provided directly by travel agencies and prospective clients:
+              We use the information you submit to respond to inquiries, arrange demonstrations, explain our services, follow up on requests, send optional product updates where you have opted in, and protect our forms against spam.
             </p>
-            <ul className="list-disc pl-5 mt-2 space-y-1 text-slate-600">
-              <li><strong>Account Credentials:</strong> Full name, work email address, phone number, and agency name during trial registration and demo requests.</li>
-              <li><strong>Agency Operational Data:</strong> Customer profiles, itinerary details, hotel tariffs, and booking vouchers entered into the SaaS platform.</li>
-              <li><strong>Billing Information:</strong> Transaction identifiers and payment logs (billing details are securely processed by authorized payment gateways).</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">3. How Information Is Used</h2>
-            <p>
-              Information is utilized strictly to provide, maintain, and support our travel management platform, including generating quotations, invoices, and vouchers as requested by the user, and communicating service notices.
+            <p className="mt-2">
+              You may ask us to stop sending optional marketing updates at any time.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">4. Items Awaiting Owner Confirmation</h2>
-            <div className="rounded-lg border border-slate-200 bg-slate-50/70 p-4 text-xs space-y-2">
-              <p className="font-semibold text-slate-800 flex items-center gap-1.5">
-                <Info className="h-4 w-4 text-indigo-600" />
-                The following specific parameters must be verified by the owner:
+            <h2 className="text-xl font-black text-slate-900 mb-3">3. Email Processing</h2>
+            <p>
+              Our marketing forms use an email delivery provider, Resend, to route submissions to our current support inbox:{' '}
+              <a
+                href="mailto:supportyourtraveldesk@gmail.com"
+                className="text-indigo-600 font-semibold underline hover:text-indigo-700"
+              >
+                supportyourtraveldesk@gmail.com
+              </a>
+            </p>
+            <p className="mt-2">
+              The marketing website does not maintain a separate database of these form submissions. Copies may remain in email inboxes and third-party service systems under their applicable retention practices.
+            </p>
+            <p className="mt-2">
+              We do not sell personal information.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-black text-slate-900 mb-3">4. Cookies and Analytics</h2>
+            <p>
+              At the time of this policy, the marketing website&apos;s source code does not initialize Google Analytics or implement tracking cookies or local-storage-based tracking.
+            </p>
+            <p className="mt-2">
+              If these technologies are introduced in the future, we will update this policy as appropriate.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-black text-slate-900 mb-3">5. Retention and Requests</h2>
+            <p>
+              We retain inquiry information for as long as reasonably necessary to respond to requests, manage follow-up communications, and maintain relevant business records.
+            </p>
+            <p className="mt-2">
+              You may contact us to request access to, correction of, or deletion of information you submitted. We will review reasonable requests and take appropriate action, subject to applicable law and legitimate recordkeeping requirements.
+            </p>
+            <p className="mt-2">
+              Deletion from our own systems does not necessarily remove copies held by third-party service providers or in their backups.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-black text-slate-900 mb-3">6. Third-Party Services</h2>
+            <p>
+              We use third-party services to operate the website and deliver form submissions. These providers may process information as necessary to provide their services under their applicable terms and privacy practices.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-black text-slate-900 mb-3">7. Changes to This Policy</h2>
+            <p>
+              We may update this policy as our website and services develop. The latest version will be published on this page with its revised date.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-black text-slate-900 mb-3">8. Contact Us</h2>
+            <p>For privacy questions or requests:</p>
+            <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50/70 p-4 text-sm space-y-1">
+              <p className="font-bold text-slate-900">Your Travel Desk</p>
+              <p>
+                Email:{' '}
+                <a
+                  href="mailto:supportyourtraveldesk@gmail.com"
+                  className="text-indigo-600 font-semibold underline hover:text-indigo-700"
+                >
+                  supportyourtraveldesk@gmail.com
+                </a>
               </p>
-              <ul className="list-disc pl-5 space-y-1 text-slate-600">
-                <li>[ ] Registered legal entity name (e.g. LLP, Pvt Ltd, or Sole Proprietorship)</li>
-                <li>[ ] Official postal and registered office address</li>
-                <li>[ ] Applicable jurisdiction and governing dispute forum (e.g. Courts of Gujarat / India)</li>
-                <li>[ ] Data retention schedule for cancelled trials and inactive agency records</li>
-                <li>[ ] Official Data Protection Officer contact email</li>
-              </ul>
             </div>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-black text-slate-900 mb-3">5. Inquiries & Contact</h2>
-            <p>
-              For privacy-related inquiries regarding this draft policy, please contact us at{' '}
-              <a href={`mailto:${BRAND.supportEmail}`} className="text-indigo-600 font-semibold underline hover:text-indigo-700">
-                {BRAND.supportEmail}
-              </a>.
-            </p>
           </section>
         </div>
       </Container>
