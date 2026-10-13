@@ -76,10 +76,43 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-base sm:text-xl font-black text-slate-900 mb-2 sm:mb-3">4. Cookies and Analytics</h2>
             <p>
-              At the time of this policy, the marketing website&apos;s source code does not initialize Google Analytics or implement tracking cookies or local-storage-based tracking.
+              We distinguish between essential website functionality and optional analytics. Essential features (such as page rendering, navigation, and contact form delivery) operate without optional tracking cookies.
             </p>
             <p className="mt-2">
-              If these technologies are introduced in the future, we will update this policy as appropriate.
+              With your explicit permission, we use Google Analytics (Google Analytics 4) to evaluate aggregate website traffic, understand visitor engagement, and improve our content. Google Analytics is <strong>never loaded or initialized</strong> on your first visit unless you explicitly choose to accept optional analytics via our choices banner.
+            </p>
+            <p className="mt-2">
+              If you reject analytics, no Google Analytics scripts are loaded, no analytics cookies are set, and all normal website features and inquiry forms remain fully usable.
+            </p>
+            <p className="mt-2">
+              When accepted, Google Analytics may use first-party cookies or device identifiers to collect technical usage data, such as your browser type, device characteristics, pages viewed, approximate geographic region, referral sources, and session duration.
+            </p>
+            <p className="mt-2">
+              Our website code strictly enforces data boundaries: direct identifying details entered into demo request or contact forms—including your name, email address, phone number, agency name, and message text—are never sent as analytics event parameters.
+            </p>
+            <p className="mt-2">
+              You can change or revoke your analytics choice at any time by clicking the <strong>Cookie Preferences</strong> link in the footer of any page. When consent is revoked, further event dispatch and page tracking are blocked immediately, and first-party Google Analytics cookies are deleted where technically possible.
+            </p>
+            <p className="mt-2">
+              Google Analytics is provided by Google LLC, and its processing is subject to Google&apos;s privacy practices. You can learn more at{' '}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 font-semibold underline hover:text-indigo-700"
+              >
+                Google&apos;s Partner Privacy Policy
+              </a>
+              . You may also manage cookies through your web browser settings or install the{' '}
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-600 font-semibold underline hover:text-indigo-700"
+              >
+                Google Analytics Opt-out Browser Add-on
+              </a>
+              .
             </p>
           </section>
 

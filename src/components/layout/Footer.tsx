@@ -10,6 +10,7 @@ import {
   FOOTER_LEGAL_LINKS,
   APP_SIGNUP_URL,
 } from '@/lib/constants';
+import { CookiePreferencesButton } from '@/components/analytics/CookiePreferencesButton';
 
 export function Footer() {
   return (
@@ -134,6 +135,11 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookiePreferencesButton className="text-slate-400 hover:text-white transition-colors cursor-pointer text-sm text-left">
+                  Cookie Preferences
+                </CookiePreferencesButton>
+              </li>
             </ul>
           </div>
         </div>
@@ -148,6 +154,7 @@ export function Footer() {
             <Link href="/terms" className="hover:text-slate-300 transition-colors">
               Terms of Service
             </Link>
+            <CookiePreferencesButton className="hover:text-slate-300 transition-colors cursor-pointer text-xs" />
           </div>
         </div>
       </Container>

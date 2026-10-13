@@ -3,6 +3,8 @@
  * Complies with strict privacy guidelines: No PII (names, emails, phones) is ever sent.
  */
 
+import { hasAnalyticsConsent } from './consent';
+
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
 
 declare global {
@@ -27,8 +29,13 @@ export function trackEvent(
   event: AnalyticsEventType,
   params?: Record<string, string | number | boolean>
 ) {
-  if (typeof window === 'undefined' || !window.gtag || !GA_MEASUREMENT_ID) {
-    // Analytics is unconfigured or in SSR mode
+  if (
+    typeof window === 'undefined' ||
+    !window.gtag ||
+    !GA_MEASUREMENT_ID ||
+    !hasAnalyticsConsent()
+  ) {
+    // Analytics is unconfigured, consent is not granted, or in SSR mode
     return;
   }
 

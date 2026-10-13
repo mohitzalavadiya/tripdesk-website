@@ -164,3 +164,11 @@ The homepage is organized into exactly 12 sections in strict sequential order:
   * Implemented `HeroSection`, `ProblemSection`, `ProductOverviewSection`, `HowItWorksSection`, `ProductScreensSection`, `WhyTripDeskSection`, `PricingPreviewSection`, `BookDemoSection`, `FaqPreviewSection`, and `FinalCtaSection`.
   * Updated Footer with 4-column categorization (Product, Company, Resources, Legal) and 2026 copyright.
   * Verified build, lint, TypeScript strict types, and responsive breakpoints.
+* **2026-10-13 (Analytics & Consent)**:
+  * Implemented first-party, opt-in Google Analytics 4 (GA4) consent architecture.
+  * Added `src/lib/analytics/consent.ts` for versioned preference persistence (`ytd_analytics_consent_v1`), safe fallback handling, and cookie/disable revocation.
+  * Configured in-session reacceptance in `enableGoogleAnalytics()` with `{ send_page_view: false }` to prevent duplicate automatic page views on the same page while restoring custom event measurement.
+  * Updated `src/lib/analytics/gtag.ts` to require verified consent before dispatching events (`demo_form_success`, `contact_form_success`, `pricing_cta_click`), while maintaining strict PII sanitization.
+  * Created `src/components/analytics/AnalyticsConsent.tsx` client component rendering an unobtrusive, accessible consent choices banner ("Your privacy choices"), Escape-key dismissal without consent mutation, and conditionally loading GA4 scripts only upon explicit acceptance.
+  * Added `src/components/analytics/CookiePreferencesButton.tsx` in `Footer.tsx` allowing visitors to inspect, change, or revoke their consent choice at any time.
+  * Updated `src/app/privacy/page.tsx` describing essential vs. optional analytics, consent requirements, opt-out tools, and revocation impact.

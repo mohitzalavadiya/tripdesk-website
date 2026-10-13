@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import { CANONICAL_SITE_URL, BRAND } from '@/lib/constants';
+import { AnalyticsConsent } from '@/components/analytics/AnalyticsConsent';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -104,6 +105,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <AnalyticsConsent />
       </body>
     </html>
   );
